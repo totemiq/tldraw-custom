@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use(express.static(join(__dirname, 'dist')));
 
 // SPA fallback — cualquier ruta devuelve index.html
-app.get('*', (req, res) => {
+app.get('{*path}', (req, res) => {
     res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
