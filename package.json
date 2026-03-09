@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "start": "serve dist -s -l 3000",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,6 +14,7 @@
     "@tldraw/sync": "^4.4.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "serve": "^14.2.6",
     "tldraw": "^4.4.0"
   },
   "devDependencies": {
