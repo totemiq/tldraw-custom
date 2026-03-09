@@ -6,15 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "start": "serve dist -s -l ${PORT:-3000}",
+    "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@tldraw/sync": "^4.4.0",
+    "express": "^5.1.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "serve": "^14.2.6",
     "tldraw": "^4.4.0"
   },
   "devDependencies": {
