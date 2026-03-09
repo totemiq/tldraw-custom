@@ -269,7 +269,11 @@ const components: TLComponents = {
 export default function App() {
   return (
     <div style={{ position: 'fixed', inset: 0 }}>
-      <Tldraw persistenceKey="tldraw-custom" components={components} />
+      <Tldraw
+        persistenceKey="tldraw-custom"
+        components={components}
+        licenseKey={import.meta.env.VITE_TLDRAW_LICENSE_KEY}
+      />
     </div>
   )
 }
