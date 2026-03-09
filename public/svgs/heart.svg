@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f43f5e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#ec489966"/>
+    </filter>
+  </defs>
+  <path d="M100 170 C60 140 15 110 15 70 C15 40 40 20 65 20 C80 20 92 28 100 40 C108 28 120 20 135 20 C160 20 185 40 185 70 C185 110 140 140 100 170Z" fill="url(#heartGrad)" stroke="#be185d" stroke-width="2" filter="url(#shadow)"/>
+  <ellipse cx="70" cy="65" rx="18" ry="12" fill="#fce7f3" opacity="0.5" transform="rotate(-30 70 65)"/>
+</svg>
