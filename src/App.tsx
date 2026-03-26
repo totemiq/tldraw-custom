@@ -4,8 +4,35 @@ import {
   Tldraw,
   useEditor,
   DefaultToolbar,
-  DefaultToolbarContent,
   StateNode,
+  SelectToolbarItem,
+  HandToolbarItem,
+  DrawToolbarItem,
+  EraserToolbarItem,
+  ArrowToolbarItem,
+  TextToolbarItem,
+  NoteToolbarItem,
+  AssetToolbarItem,
+  FrameToolbarItem,
+  LaserToolbarItem,
+  HighlightToolbarItem,
+  RectangleToolbarItem,
+  EllipseToolbarItem,
+  TriangleToolbarItem,
+  DiamondToolbarItem,
+  HexagonToolbarItem,
+  OvalToolbarItem,
+  RhombusToolbarItem,
+  StarToolbarItem,
+  CloudToolbarItem,
+  HeartToolbarItem,
+  XBoxToolbarItem,
+  CheckBoxToolbarItem,
+  ArrowLeftToolbarItem,
+  ArrowUpToolbarItem,
+  ArrowDownToolbarItem,
+  ArrowRightToolbarItem,
+  LineToolbarItem,
 } from 'tldraw'
 import type { TLComponents } from 'tldraw'
 import 'tldraw/tldraw.css'
@@ -201,6 +228,8 @@ async function applyBucketColor(editor: any, color: string) {
     props: { ...asset.props, src: newSrc, mimeType: 'image/svg+xml' }, meta: {}
   }])
   editor.updateShape({ id: shape.id, type: 'image', props: { assetId: newAssetId } })
+  
+  editor.markHistoryStoppingPoint('bucket color')
 }
 
 class BucketIdle extends StateNode {
@@ -492,7 +521,7 @@ function placeSubPieces(
     const dh = Math.max(1, piece.h * scale)
     const relX = (piece.ox - minX) * scale
     const relY = (piece.oy - minY) * scale
-    const src = svgToDataUrl(piece.svgText)
+    const src = (piece as any).isImage ? (piece as any).file : svgToDataUrl(piece.svgText)
     const assetId = `asset:svg-${Date.now()}-${i}` as any
     const shapeId = `shape:svg-${Date.now()}-${i}` as any
 
@@ -527,17 +556,17 @@ function IllustrationPicker() {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
 
-  const PANEL_W = 680
-  const PANEL_H = 480
+  const PANEL_W = Math.min(680, window.innerWidth - 16)
+  const PANEL_H = Math.min(480, window.innerHeight - 100)
 
   const openPanel = useCallback(() => {
     if (!buttonRef.current) return
     const rect = buttonRef.current.getBoundingClientRect()
     const x = Math.max(8, Math.min(rect.left + rect.width / 2 - PANEL_W / 2, window.innerWidth - PANEL_W - 8))
-    const y = rect.top - PANEL_H - 10
+    const y = Math.max(8, rect.top - PANEL_H - 10)
     setPopupPos({ x, y })
     setOpen(true)
-  }, [])
+  }, [PANEL_W, PANEL_H])
 
   const closePanel = useCallback(() => {
     setOpen(false)
@@ -546,21 +575,24 @@ function IllustrationPicker() {
 
   useEffect(() => {
     if (!open) return
-    const handler = (e: MouseEvent) => {
+    const handler = (e: PointerEvent) => {
       if (
         panelRef.current && !panelRef.current.contains(e.target as Node) &&
         buttonRef.current && !buttonRef.current.contains(e.target as Node)
       ) closePanel()
     }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
+    document.addEventListener('pointerdown', handler, { capture: true })
+    return () => document.removeEventListener('pointerdown', handler, { capture: true })
   }, [open, closePanel])
 
   const handlePieceClick = useCallback(async (piece: Piece) => {
     if (adding) return
     setAdding(piece.file)
     try {
-      const sub = await extractSubPieces(piece.file)
+      const isImg = piece.file.toLowerCase().endsWith('.png') || piece.file.toLowerCase().endsWith('.jpg')
+      const sub = isImg
+        ? [{ name: piece.name, svgText: '', w: 800, h: 800, ox: 0, oy: 0, isImage: true, file: piece.file } as any]
+        : await extractSubPieces(piece.file)
       const centre = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
       placeSubPieces(editor, sub, centre)
     } finally {
@@ -573,6 +605,10 @@ function IllustrationPicker() {
     setAdding('all')
     try {
       const allSubs: SubPiece[] = []
+      allSubs.push({
+        name: 'Guía Completa (PNG)', svgText: '', w: 800, h: 800, ox: 0, oy: 0, 
+        isImage: true, file: group.illustration
+      } as any)
       for (const piece of group.pieces) {
         const sub = await extractSubPieces(piece.file)
         allSubs.push(...sub)
@@ -601,7 +637,11 @@ function IllustrationPicker() {
     <>
       <button
         ref={buttonRef}
-        onClick={open ? closePanel : openPanel}
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          open ? closePanel() : openPanel()
+        }}
         title="Personajes y Piezas"
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -671,13 +711,13 @@ function IllustrationPicker() {
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, borderRadius: 6, border: 'none', background: 'transparent', cursor: 'pointer', color: tl.textMuted }}
               onMouseEnter={(e) => { e.currentTarget.style.background = tl.surface; (e.currentTarget as HTMLButtonElement).style.color = tl.text }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = tl.textMuted }}
-            >✕</button>
+            >X</button>
           </div>
 
           <div style={{ flex: 1, overflow: 'hidden', display: 'flex' }}>
 
             {!selectedGroup ? (
-              <div style={{ flex: 1, overflowY: 'auto', padding: 12, display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 8, alignContent: 'start' }}>
+              <div style={{ flex: 1, overflowY: 'auto', padding: 12, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))', gap: 8, alignContent: 'start' }}>
                 {ILLUSTRATION_GROUPS.map((group) => (
                   <button
                     key={group.id}
@@ -708,10 +748,10 @@ function IllustrationPicker() {
 
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                   <div style={{ padding: '5px 10px', fontSize: 9, fontWeight: 700, color: tl.textMuted, letterSpacing: '0.06em', textTransform: 'uppercase', borderBottom: `1px solid ${tl.border}` }}>
-                    Clic → agrega cada sub-pieza separada
+                    Clic para agregar cada sub-pieza separada
                   </div>
-                  <div style={{ flex: 1, overflowY: 'auto', padding: 10, display: 'grid', gridTemplateColumns: selectedGroup.pieces.length === 1 ? '1fr' : 'repeat(2, 1fr)', gap: 8, alignContent: 'start' }}>
-                    {selectedGroup.pieces.map((piece) => {
+                  <div style={{ flex: 1, overflowY: 'auto', padding: 10, display: 'grid', gridTemplateColumns: selectedGroup.pieces.length === 1 ? '1fr' : 'repeat(auto-fill, minmax(120px, 1fr))', gap: 8, alignContent: 'start' }}>
+                    {[{ name: 'Guía Completa (PNG)', file: selectedGroup.illustration }, ...selectedGroup.pieces].map((piece) => {
                       const isAdding = adding === piece.file
                       return (
                         <button
@@ -766,6 +806,188 @@ function IllustrationPicker() {
   )
 }
 
+function ShapesDropdown() {
+  const [open, setOpen] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const [popupPos, setPopupPos] = useState({ x: 0, y: 0 })
+
+  const openPanel = useCallback(() => {
+    if (!buttonRef.current) return
+    const rect = buttonRef.current.getBoundingClientRect()
+    const px = Math.max(8, Math.min(rect.left - 100, window.innerWidth - 220))
+    const py = Math.max(8, rect.top - 260)
+    setPopupPos({ x: px, y: py })
+    setOpen(true)
+  }, [])
+
+  const closePanel = useCallback(() => setOpen(false), [])
+
+  useEffect(() => {
+    if (!open) return
+    const handler = (e: PointerEvent) => {
+      if (
+        panelRef.current && !panelRef.current.contains(e.target as Node) &&
+        buttonRef.current && !buttonRef.current.contains(e.target as Node)
+      ) closePanel()
+    }
+    document.addEventListener('pointerdown', handler, { capture: true })
+    return () => document.removeEventListener('pointerdown', handler, { capture: true })
+  }, [open, closePanel])
+
+  return (
+    <>
+      <button
+        ref={buttonRef}
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          open ? closePanel() : openPanel()
+        }}
+        title="Geometrías"
+        className="tlui-button tlui-button__icon"
+        data-state={open ? 'selected' : 'inactive'}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="3.5"></rect>
+          <path d="M14 21l3.5-7 3.5 7z"></path>
+          <path d="M3 14h7v7H3z"></path>
+        </svg>
+      </button>
+
+      {open && createPortal(
+        <div
+          ref={panelRef}
+          className="tlui-buttons__grid"
+          style={{
+            position: 'fixed',
+            top: popupPos.y, left: popupPos.x,
+            width: 210,
+            background: 'var(--color-panel)', 
+            borderRadius: 'var(--radius-3)',
+            boxShadow: 'var(--shadow-2)',
+            display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 4,
+            padding: 8, zIndex: 99999,
+          }}
+          onClick={closePanel}
+        >
+          <RectangleToolbarItem />
+          <EllipseToolbarItem />
+          <TriangleToolbarItem />
+          <DiamondToolbarItem />
+          <HexagonToolbarItem />
+          <OvalToolbarItem />
+          <RhombusToolbarItem />
+          <StarToolbarItem />
+          <CloudToolbarItem />
+          <HeartToolbarItem />
+          <XBoxToolbarItem />
+          <CheckBoxToolbarItem />
+          <ArrowLeftToolbarItem />
+          <ArrowUpToolbarItem />
+          <ArrowDownToolbarItem />
+          <ArrowRightToolbarItem />
+          <LineToolbarItem />
+        </div>,
+        document.body
+      )}
+    </>
+  )
+}
+
+function BucketColorDropdown({ isBucket }: { isBucket: boolean }) {
+  const [open, setOpen] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const [popupPos, setPopupPos] = useState({ x: 0, y: 0 })
+  const [, setForce] = useState(0)
+  const editor = useEditor()
+
+  const PALETTE = ['#e53e3e', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#1d1d1d', '#ffffff']
+
+  const openPanel = useCallback(() => {
+    if (!buttonRef.current) return
+    const rect = buttonRef.current.getBoundingClientRect()
+    const panelWidth = 280
+    const px = Math.max(8, Math.min(rect.left - 60, window.innerWidth - panelWidth - 8))
+    const py = Math.max(8, rect.top - 100)
+    setPopupPos({ x: px, y: py })
+    setOpen(true)
+  }, [])
+
+  const closePanel = useCallback(() => setOpen(false), [])
+
+  useEffect(() => {
+    if (!open) return
+    const handler = (e: PointerEvent) => {
+      if ((e.target as HTMLElement).tagName?.toLowerCase() === 'input') return
+      if (
+        panelRef.current && !panelRef.current.contains(e.target as Node) &&
+        buttonRef.current && !buttonRef.current.contains(e.target as Node)
+      ) closePanel()
+    }
+    document.addEventListener('pointerdown', handler, { capture: true })
+    return () => document.removeEventListener('pointerdown', handler, { capture: true })
+  }, [open, closePanel])
+
+  return (
+    <>
+      <button
+        ref={buttonRef}
+        title="Color del Bote"
+        className="tlui-button tlui-button__icon"
+        onClick={(e) => {
+          e.preventDefault()
+          e.stopPropagation()
+          if (!isBucket) { editor.setCurrentTool('bucket') }
+          open ? closePanel() : openPanel()
+        }}
+        style={{ color: globBucketColor }}
+      >
+        <div style={{ width: 14, height: 14, borderRadius: '50%', background: globBucketColor, border: '1px solid rgba(0,0,0,0.1)' }} />
+      </button>
+
+      {open && createPortal(
+        <div
+          ref={panelRef}
+          style={{
+            position: 'fixed',
+            top: popupPos.y, left: popupPos.x,
+            background: 'var(--color-panel)',
+            padding: 8, borderRadius: 'var(--radius-3)',
+            boxShadow: 'var(--shadow-2)',
+            display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 6,
+            width: Math.min(280, window.innerWidth - 16),
+            zIndex: 99999,
+          }}
+        >
+          {PALETTE.map(c => (
+            <button
+              key={c}
+              title={c}
+              onClick={() => { globBucketColor = c; setForce(prev => prev + 1); closePanel() }}
+              style={{
+                width: 24, height: 24, borderRadius: '50%', background: c, padding: 0,
+                border: `2px solid ${globBucketColor === c ? '#2d7ef7' : 'rgba(0,0,0,0.1)'}`,
+                boxShadow: globBucketColor === c ? '0 0 0 2px rgba(45,126,247,0.2)' : 'none',
+                cursor: 'pointer', transition: 'transform 0.1s'
+              }}
+            />
+          ))}
+          <div style={{ width: 1, height: 16, background: 'rgba(0,0,0,0.1)' }} />
+          <input 
+            title="Color personalizado" type="color" value={globBucketColor}
+            onChange={(e) => { globBucketColor = e.target.value; setForce(prev => prev + 1) }}
+            style={{ width: 28, height: 28, padding: 0, border: 'none', borderRadius: 4, cursor: 'pointer', background: 'transparent' }}
+          />
+        </div>,
+        document.body
+      )}
+    </>
+  )
+}
+
 function CustomToolbar() {
   const [, setForce] = useState(0) 
   const editor = useEditor()
@@ -776,8 +998,6 @@ function CustomToolbar() {
     const unsub = editor.store.listen(() => setForce(prev => prev + 1))
     return unsub
   }, [editor])
-
-  const PALETTE = ['#e53e3e', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#1d1d1d', '#ffffff']
   
   const bucketCursorSvg = encodeURIComponent(`<svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="#1d1d1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"/><path d="m5 2 5 5"/><path d="M2 13h15"/><path d="M22 20a2 2 0 1 1-4 0c0-1.6 1.7-2.4 2-4 .3 1.6 2 2.4 2 4Z"/></svg>`)
 
@@ -791,8 +1011,30 @@ function CustomToolbar() {
         `}</style>
       )}
 
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <DefaultToolbarContent />
+      <div style={{ 
+        display: 'flex', alignItems: 'center', flexWrap: window.innerWidth < 600 ? 'nowrap' : 'wrap', 
+        justifyContent: 'flex-start', gap: 4, padding: '4px',
+        overflowX: 'auto', maxWidth: 'calc(100vw - 16px)',
+        WebkitOverflowScrolling: 'touch',
+        scrollbarWidth: 'none', // Firefox
+      }}>
+        <style>{`
+          .tlui-toolbar__content::-webkit-scrollbar { display: none; }
+        `}</style>
+        <SelectToolbarItem />
+        <HandToolbarItem />
+        <DrawToolbarItem />
+        <EraserToolbarItem />
+        <ArrowToolbarItem />
+        <TextToolbarItem />
+        <NoteToolbarItem />
+        <AssetToolbarItem />
+        
+        <ShapesDropdown />
+
+        <FrameToolbarItem />
+        <LaserToolbarItem />
+        <HighlightToolbarItem />
 
         <div style={{ width: 1, height: 24, background: 'rgba(0,0,0,0.1)', margin: '0 4px' }} />
 
@@ -811,31 +1053,7 @@ function CustomToolbar() {
           </svg>
         </button>
 
-        {isBucket && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '0 8px', background: 'rgba(0,0,0,0.03)', borderRadius: 8, height: 40, margin: '0 4px' }}>
-            {PALETTE.map(c => (
-              <button
-                key={c}
-                title={c}
-                onClick={() => { globBucketColor = c; setForce(prev => prev + 1) }}
-                style={{
-                  width: 22, height: 22, borderRadius: '50%', background: c, padding: 0,
-                  border: `2px solid ${globBucketColor === c ? '#2d7ef7' : 'rgba(0,0,0,0.1)'}`,
-                  boxShadow: globBucketColor === c ? '0 0 0 2px rgba(45,126,247,0.2)' : 'none',
-                  cursor: 'pointer', transition: 'transform 0.1s'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              />
-            ))}
-            <div style={{ width: 1, height: 16, background: 'rgba(0,0,0,0.1)' }} />
-            <input 
-              title="Color personalizado" type="color" value={globBucketColor}
-              onChange={(e) => { globBucketColor = e.target.value; setForce(prev => prev + 1) }}
-              style={{ width: 24, height: 24, padding: 0, border: 'none', borderRadius: 4, cursor: 'pointer', background: 'transparent' }}
-            />
-          </div>
-        )}
+        {isBucket && <BucketColorDropdown isBucket={isBucket} />}
 
         <div style={{ width: 1, height: 24, background: 'rgba(0,0,0,0.1)', margin: '0 4px' }} />
 
