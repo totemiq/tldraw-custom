@@ -1,0 +1,814 @@
+{
+  "groups": [
+    {
+      "name": "FLORES",
+      "pieces": [
+        {
+          "name": "Flores_coloniales_1_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_1_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_2_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_2_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_3_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_3_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_4_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_4_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_5_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_5_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_6_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_6_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_7_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_7_.svg"
+        }
+      ,
+        {
+          "name": "Flores_coloniales_8_",
+          "svgUrl": "/illustrations/svg/FLORES/Flores_coloniales_8_.svg"
+        }
+      ]
+    },
+    {
+      "name": "ICONOS_COLONIALES",
+      "pieces": [
+        {
+          "name": "corazones_y_hojas_coloniales1",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales1.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales2",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales2.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales3",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales3.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales4",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales4.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales5",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales5.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales6",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales6.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales7",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales7.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales8",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales8.svg"
+        }
+      ,
+        {
+          "name": "corazones_y_hojas_coloniales9",
+          "svgUrl": "/illustrations/svg/ICONOS_COLONIALES/corazones_y_hojas_coloniales9.svg"
+        }
+      ]
+    },
+    {
+      "name": "ICONOS_INCAS",
+      "pieces": [
+        {
+          "name": "Icono_Inca_1",
+          "svgUrl": "/illustrations/svg/ICONOS_INCAS/Icono_Inca_1.svg"
+        }
+      ,
+        {
+          "name": "Icono_Inca_2",
+          "svgUrl": "/illustrations/svg/ICONOS_INCAS/Icono_Inca_2.svg"
+        }
+      ]
+    },
+    {
+      "name": "KACHAMPA",
+      "pieces": [
+        {
+          "name": "kachampa1",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa1.svg"
+        }
+      ,
+        {
+          "name": "kachampa10",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa10.svg"
+        }
+      ,
+        {
+          "name": "kachampa11",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa11.svg"
+        }
+      ,
+        {
+          "name": "kachampa12",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa12.svg"
+        }
+      ,
+        {
+          "name": "kachampa2",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa2.svg"
+        }
+      ,
+        {
+          "name": "kachampa3",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa3.svg"
+        }
+      ,
+        {
+          "name": "kachampa4",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa4.svg"
+        }
+      ,
+        {
+          "name": "kachampa5",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa5.svg"
+        }
+      ,
+        {
+          "name": "kachampa6",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa6.svg"
+        }
+      ,
+        {
+          "name": "kachampa7",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa7.svg"
+        }
+      ,
+        {
+          "name": "kachampa8",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa8.svg"
+        }
+      ,
+        {
+          "name": "kachampa9",
+          "svgUrl": "/illustrations/svg/KACHAMPA/kachampa9.svg"
+        }
+      ]
+    },
+    {
+      "name": "KUKASARU",
+      "pieces": [
+        {
+          "name": "kukasaru1",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru1.svg"
+        }
+      ,
+        {
+          "name": "kukasaru10",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru10.svg"
+        }
+      ,
+        {
+          "name": "kukasaru2",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru2.svg"
+        }
+      ,
+        {
+          "name": "kukasaru3",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru3.svg"
+        }
+      ,
+        {
+          "name": "kukasaru4",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru4.svg"
+        }
+      ,
+        {
+          "name": "kukasaru5",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru5.svg"
+        }
+      ,
+        {
+          "name": "kukasaru6",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru6.svg"
+        }
+      ,
+        {
+          "name": "kukasaru7",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru7.svg"
+        }
+      ,
+        {
+          "name": "kukasaru8",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru8.svg"
+        }
+      ,
+        {
+          "name": "kukasaru9",
+          "svgUrl": "/illustrations/svg/KUKASARU/kukasaru9.svg"
+        }
+      ]
+    },
+    {
+      "name": "MAJEÑA",
+      "pieces": [
+        {
+          "name": "Majeña1",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña1.svg"
+        }
+      ,
+        {
+          "name": "Majeña10",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña10.svg"
+        }
+      ,
+        {
+          "name": "Majeña11",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña11.svg"
+        }
+      ,
+        {
+          "name": "Majeña12",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña12.svg"
+        }
+      ,
+        {
+          "name": "Majeña2",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña2.svg"
+        }
+      ,
+        {
+          "name": "Majeña3",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña3.svg"
+        }
+      ,
+        {
+          "name": "Majeña4",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña4.svg"
+        }
+      ,
+        {
+          "name": "Majeña5",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña5.svg"
+        }
+      ,
+        {
+          "name": "Majeña6",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña6.svg"
+        }
+      ,
+        {
+          "name": "Majeña7",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña7.svg"
+        }
+      ,
+        {
+          "name": "Majeña8",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña8.svg"
+        }
+      ,
+        {
+          "name": "Majeña9",
+          "svgUrl": "/illustrations/svg/MAJEÑA/Majeña9.svg"
+        }
+      ]
+    },
+    {
+      "name": "MESTIZA_DE_OLLANTAYTAMBO_",
+      "pieces": [
+        {
+          "name": "Copia_de_Mestiza_Ollanta6",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Copia_de_Mestiza_Ollanta6.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta1",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta1.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta10",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta10.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta2",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta2.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta3",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta3.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta4",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta4.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta5",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta5.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta7",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta7.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta8",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta8.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_Ollanta9",
+          "svgUrl": "/illustrations/svg/MESTIZA_DE_OLLANTAYTAMBO_/Mestiza_Ollanta9.svg"
+        }
+      ]
+    },
+    {
+      "name": "MESTIZA_QOLLACHA_1",
+      "pieces": [
+        {
+          "name": "mestiza_qollacha_1",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_1.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_10",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_10.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_11",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_11.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_12",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_12.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_2",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_2.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_3",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_3.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_4",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_4.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_5",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_5.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_6",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_6.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_7",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_7.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_8",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_8.svg"
+        }
+      ,
+        {
+          "name": "mestiza_qollacha_9",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_1/mestiza_qollacha_9.svg"
+        }
+      ]
+    },
+    {
+      "name": "MESTIZA_QOLLACHA_2",
+      "pieces": [
+        {
+          "name": "Mestiza_qollacha_2.1",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.1.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.10",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.10.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.2",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.2.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.3",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.3.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.4",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.4.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.5",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.5.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.6",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.6.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.7",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.7.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.8",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.8.svg"
+        }
+      ,
+        {
+          "name": "Mestiza_qollacha_2.9",
+          "svgUrl": "/illustrations/svg/MESTIZA_QOLLACHA_2/Mestiza_qollacha_2.9.svg"
+        }
+      ]
+    },
+    {
+      "name": "PALOMA",
+      "pieces": [
+        {
+          "name": "Paloma_colonial1",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial1.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial10",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial10.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial2",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial2.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial3",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial3.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial4",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial4.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial5",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial5.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial6",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial6.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial7",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial7.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial8",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial8.svg"
+        }
+      ,
+        {
+          "name": "Paloma_colonial9",
+          "svgUrl": "/illustrations/svg/PALOMA/Paloma_colonial9.svg"
+        }
+      ]
+    },
+    {
+      "name": "PAVO_REAL",
+      "pieces": [
+        {
+          "name": "Pavo_Real1",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real1.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real10",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real10.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real11",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real11.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real12",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real12.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real2",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real2.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real3",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real3.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real4",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real4.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real5",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real5.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real6",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real6.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real7",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real7.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real8",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real8.svg"
+        }
+      ,
+        {
+          "name": "Pavo_Real9",
+          "svgUrl": "/illustrations/svg/PAVO_REAL/Pavo_Real9.svg"
+        }
+      ]
+    },
+    {
+      "name": "QHAPAQ_QOLLA",
+      "pieces": [
+        {
+          "name": "Qhapaq_qolla1",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla1.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla10",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla10.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla11",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla11.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla2",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla2.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla3",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla3.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla4",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla4.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla5",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla5.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla6",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla6.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla7",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla7.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla8",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla8.svg"
+        }
+      ,
+        {
+          "name": "Qhapaq_qolla9",
+          "svgUrl": "/illustrations/svg/QHAPAQ_QOLLA/Qhapaq_qolla9.svg"
+        }
+      ]
+    },
+    {
+      "name": "TINKUS",
+      "pieces": [
+        {
+          "name": "Tinkus8",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus8.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_1",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_1.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_10",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_10.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_11",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_11.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_12",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_12.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_13",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_13.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_14",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_14.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_2",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_2.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_3",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_3.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_4",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_4.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_5",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_5.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_6",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_6.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_7",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_7.svg"
+        }
+      ,
+        {
+          "name": "Tinkus_9",
+          "svgUrl": "/illustrations/svg/TINKUS/Tinkus_9.svg"
+        }
+      ]
+    },
+    {
+      "name": "UKUKO_1",
+      "pieces": [
+        {
+          "name": "ukuko_1",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_1.svg"
+        }
+      ,
+        {
+          "name": "ukuko_10",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_10.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_2.svg"
+        }
+      ,
+        {
+          "name": "ukuko_3",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_3.svg"
+        }
+      ,
+        {
+          "name": "ukuko_4",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_4.svg"
+        }
+      ,
+        {
+          "name": "ukuko_5",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_5.svg"
+        }
+      ,
+        {
+          "name": "ukuko_6",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_6.svg"
+        }
+      ,
+        {
+          "name": "ukuko_7",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_7.svg"
+        }
+      ,
+        {
+          "name": "ukuko_8",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_8.svg"
+        }
+      ,
+        {
+          "name": "ukuko_9",
+          "svgUrl": "/illustrations/svg/UKUKO_1/ukuko_9.svg"
+        }
+      ]
+    },
+    {
+      "name": "UKUKO_2",
+      "pieces": [
+        {
+          "name": "ukuko_2.1",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.1.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2.2",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.2.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2.3",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.3.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2.4",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.4.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2.5",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.5.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2.6",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.6.svg"
+        }
+      ,
+        {
+          "name": "ukuko_2.7",
+          "svgUrl": "/illustrations/svg/UKUKO_2/ukuko_2.7.svg"
+        }
+      ]
+    }
+  ]
+}

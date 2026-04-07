@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "id": "kachampa-fondo-linea",
+      "name": "Kachampa — fondo + línea",
+      "coverUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-01-combo.svg",
+      "guideUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-01-combo.svg",
+      "pieces": [
+        { "id": "kachampa-combo-01", "name": "Pieza 1", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-01-combo.svg", "w": 3604, "h": 1448 },
+        { "id": "kachampa-combo-02", "name": "Pieza 2", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-02-combo.svg", "w": 1219, "h": 1211 },
+        { "id": "kachampa-combo-03", "name": "Pieza 3", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-03-combo.svg", "w": 1219, "h": 1211 },
+        { "id": "kachampa-combo-04", "name": "Pieza 4", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-04-combo.svg", "w": 1554, "h": 1174 },
+        { "id": "kachampa-combo-05", "name": "Pieza 5", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-05-combo.svg", "w": 1531, "h": 1274 },
+        { "id": "kachampa-combo-06", "name": "Pieza 6", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-06-combo.svg", "w": 6865, "h": 3357 },
+        { "id": "kachampa-combo-07", "name": "Pieza 7", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-07-combo.svg", "w": 2498, "h": 2300 },
+        { "id": "kachampa-combo-08", "name": "Pieza 8", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-08-combo.svg", "w": 8566, "h": 3887 },
+        { "id": "kachampa-combo-09", "name": "Pieza 9", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-09-combo.svg", "w": 2182, "h": 1681 },
+        { "id": "kachampa-combo-10", "name": "Pieza 10", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-10-combo.svg", "w": 318, "h": 805 },
+        { "id": "kachampa-combo-11", "name": "Pieza 11", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-11-combo.svg", "w": 318, "h": 805 },
+        { "id": "kachampa-combo-12", "name": "Pieza 12", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-12-combo.svg", "w": 4037, "h": 6299 }
+      ]
+    }
+  ]
+}
