@@ -3,6 +3,9 @@ export interface IllustrationPiece {
   name: string
   svgUrl: string
   pngUrl: string
+  previewUrl?: string
+  fillPngUrl?: string
+  strokePngUrl?: string
   w?: number
   h?: number
 }

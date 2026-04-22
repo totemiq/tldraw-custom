@@ -1,23 +1,3543 @@
 {
   "groups": [
     {
-      "id": "kachampa-fondo-linea",
-      "name": "Kachampa — fondo + línea",
-      "coverUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-01-combo.svg",
-      "guideUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-01-combo.svg",
+      "id": "flores",
+      "name": "Flores",
+      "coverUrl": "/illustrations/svg/flores/Flores_coloniales_1_.svg",
+      "guideUrl": "/illustrations/svg/flores/Flores_coloniales_1_.svg",
       "pieces": [
-        { "id": "kachampa-combo-01", "name": "Pieza 1", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-01-combo.svg", "w": 3604, "h": 1448 },
-        { "id": "kachampa-combo-02", "name": "Pieza 2", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-02-combo.svg", "w": 1219, "h": 1211 },
-        { "id": "kachampa-combo-03", "name": "Pieza 3", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-03-combo.svg", "w": 1219, "h": 1211 },
-        { "id": "kachampa-combo-04", "name": "Pieza 4", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-04-combo.svg", "w": 1554, "h": 1174 },
-        { "id": "kachampa-combo-05", "name": "Pieza 5", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-05-combo.svg", "w": 1531, "h": 1274 },
-        { "id": "kachampa-combo-06", "name": "Pieza 6", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-06-combo.svg", "w": 6865, "h": 3357 },
-        { "id": "kachampa-combo-07", "name": "Pieza 7", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-07-combo.svg", "w": 2498, "h": 2300 },
-        { "id": "kachampa-combo-08", "name": "Pieza 8", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-08-combo.svg", "w": 8566, "h": 3887 },
-        { "id": "kachampa-combo-09", "name": "Pieza 9", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-09-combo.svg", "w": 2182, "h": 1681 },
-        { "id": "kachampa-combo-10", "name": "Pieza 10", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-10-combo.svg", "w": 318, "h": 805 },
-        { "id": "kachampa-combo-11", "name": "Pieza 11", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-11-combo.svg", "w": 318, "h": 805 },
-        { "id": "kachampa-combo-12", "name": "Pieza 12", "pngUrl": "", "svgUrl": "/illustrations/kachampa/combos/kachampa-fondo-linea-12-combo.svg", "w": 4037, "h": 6299 }
+        {
+          "id": "flores-flores-coloniales-1",
+          "name": "Flores_coloniales_1_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_1_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_1_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 7661,
+          "h": 5948
+        },
+        {
+          "id": "flores-flores-coloniales-2",
+          "name": "Flores_coloniales_2_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_2_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_2_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3738,
+          "h": 3370
+        },
+        {
+          "id": "flores-flores-coloniales-3",
+          "name": "Flores_coloniales_3_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_3_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_3_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4808,
+          "h": 4573
+        },
+        {
+          "id": "flores-flores-coloniales-4",
+          "name": "Flores_coloniales_4_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_4_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_4_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4715,
+          "h": 4518
+        },
+        {
+          "id": "flores-flores-coloniales-5",
+          "name": "Flores_coloniales_5_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_5_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_5_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5749,
+          "h": 4467
+        },
+        {
+          "id": "flores-flores-coloniales-6",
+          "name": "Flores_coloniales_6_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_6_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_6_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4796,
+          "h": 4468
+        },
+        {
+          "id": "flores-flores-coloniales-7",
+          "name": "Flores_coloniales_7_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_7_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_7_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4491,
+          "h": 4493
+        },
+        {
+          "id": "flores-flores-coloniales-8",
+          "name": "Flores_coloniales_8_",
+          "svgUrl": "/illustrations/svg/flores/Flores_coloniales_8_.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/flores/Flores_coloniales_8_.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4780,
+          "h": 4466
+        }
+      ]
+    },
+    {
+      "id": "iconos-coloniales",
+      "name": "Iconos Coloniales",
+      "coverUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales1.svg",
+      "guideUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales1.svg",
+      "pieces": [
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales1",
+          "name": "corazones_y_hojas_coloniales1",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4617,
+          "h": 1967
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales2",
+          "name": "corazones_y_hojas_coloniales2",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4617,
+          "h": 1967
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales3",
+          "name": "corazones_y_hojas_coloniales3",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2510,
+          "h": 2351
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales4",
+          "name": "corazones_y_hojas_coloniales4",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4008,
+          "h": 4300
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales5",
+          "name": "corazones_y_hojas_coloniales5",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4599,
+          "h": 3476
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales6",
+          "name": "corazones_y_hojas_coloniales6",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4244,
+          "h": 3558
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales7",
+          "name": "corazones_y_hojas_coloniales7",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3700,
+          "h": 2871
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales8",
+          "name": "corazones_y_hojas_coloniales8",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2763,
+          "h": 2652
+        },
+        {
+          "id": "iconos-coloniales-corazones-y-hojas-coloniales9",
+          "name": "corazones_y_hojas_coloniales9",
+          "svgUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-coloniales/corazones_y_hojas_coloniales9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1815,
+          "h": 1771
+        }
+      ]
+    },
+    {
+      "id": "iconos-incas",
+      "name": "Iconos Incas",
+      "coverUrl": "/illustrations/svg/iconos-incas/Icono_Inca_1.svg",
+      "guideUrl": "/illustrations/svg/iconos-incas/Icono_Inca_1.svg",
+      "pieces": [
+        {
+          "id": "iconos-incas-icono-inca-1",
+          "name": "Icono_Inca_1",
+          "svgUrl": "/illustrations/svg/iconos-incas/Icono_Inca_1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-incas/Icono_Inca_1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5467,
+          "h": 4507
+        },
+        {
+          "id": "iconos-incas-icono-inca-2",
+          "name": "Icono_Inca_2",
+          "svgUrl": "/illustrations/svg/iconos-incas/Icono_Inca_2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/iconos-incas/Icono_Inca_2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 6622,
+          "h": 3591
+        }
+      ]
+    },
+    {
+      "id": "kachampa",
+      "name": "Kachampa",
+      "coverUrl": "/illustrations/svg/kachampa/kachampa1.svg",
+      "guideUrl": "/illustrations/svg/kachampa/kachampa1.svg",
+      "pieces": [
+        {
+          "id": "kachampa-kachampa1",
+          "name": "kachampa1",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-kachampa2",
+          "name": "kachampa2",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-kachampa3",
+          "name": "kachampa3",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-kachampa4",
+          "name": "kachampa4",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-kachampa5",
+          "name": "kachampa5",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3620,
+          "h": 6211
+        },
+        {
+          "id": "kachampa-kachampa6",
+          "name": "kachampa6",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3365,
+          "h": 3685
+        },
+        {
+          "id": "kachampa-kachampa7",
+          "name": "kachampa7",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4885,
+          "h": 1836
+        },
+        {
+          "id": "kachampa-kachampa8",
+          "name": "kachampa8",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 987,
+          "h": 2164
+        },
+        {
+          "id": "kachampa-kachampa9",
+          "name": "kachampa9",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 987,
+          "h": 2164
+        },
+        {
+          "id": "kachampa-kachampa10",
+          "name": "kachampa10",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 6138,
+          "h": 4011
+        },
+        {
+          "id": "kachampa-kachampa11",
+          "name": "kachampa11",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa11.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa11.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3637,
+          "h": 3618
+        },
+        {
+          "id": "kachampa-kachampa12",
+          "name": "kachampa12",
+          "svgUrl": "/illustrations/svg/kachampa/kachampa12.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kachampa/kachampa12.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1132,
+          "h": 1409
+        }
+      ]
+    },
+    {
+      "id": "kukasaru",
+      "name": "Kukasaru",
+      "coverUrl": "/illustrations/svg/kukasaru/kukasaru1.svg",
+      "guideUrl": "/illustrations/svg/kukasaru/kukasaru1.svg",
+      "pieces": [
+        {
+          "id": "kukasaru-kukasaru1",
+          "name": "kukasaru1",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1492,
+          "h": 1561
+        },
+        {
+          "id": "kukasaru-kukasaru2",
+          "name": "kukasaru2",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1806,
+          "h": 4033
+        },
+        {
+          "id": "kukasaru-kukasaru3",
+          "name": "kukasaru3",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1804,
+          "h": 4033
+        },
+        {
+          "id": "kukasaru-kukasaru4",
+          "name": "kukasaru4",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4483,
+          "h": 3900
+        },
+        {
+          "id": "kukasaru-kukasaru5",
+          "name": "kukasaru5",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4091,
+          "h": 6053
+        },
+        {
+          "id": "kukasaru-kukasaru6",
+          "name": "kukasaru6",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2790,
+          "h": 2193
+        },
+        {
+          "id": "kukasaru-kukasaru7",
+          "name": "kukasaru7",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        },
+        {
+          "id": "kukasaru-kukasaru8",
+          "name": "kukasaru8",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        },
+        {
+          "id": "kukasaru-kukasaru9",
+          "name": "kukasaru9",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        },
+        {
+          "id": "kukasaru-kukasaru10",
+          "name": "kukasaru10",
+          "svgUrl": "/illustrations/svg/kukasaru/kukasaru10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/kukasaru/kukasaru10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        }
+      ]
+    },
+    {
+      "id": "majena",
+      "name": "Majena",
+      "coverUrl": "/illustrations/svg/majena/Majen%CC%83a1.svg",
+      "guideUrl": "/illustrations/svg/majena/Majen%CC%83a1.svg",
+      "pieces": [
+        {
+          "id": "majena-majena1",
+          "name": "Majeña1",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2024,
+          "h": 1431
+        },
+        {
+          "id": "majena-majena2",
+          "name": "Majeña2",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 851,
+          "h": 755
+        },
+        {
+          "id": "majena-majena3",
+          "name": "Majeña3",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5683,
+          "h": 5234
+        },
+        {
+          "id": "majena-majena4",
+          "name": "Majeña4",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3081,
+          "h": 3422
+        },
+        {
+          "id": "majena-majena5",
+          "name": "Majeña5",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2557,
+          "h": 882
+        },
+        {
+          "id": "majena-majena6",
+          "name": "Majeña6",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 743,
+          "h": 2346
+        },
+        {
+          "id": "majena-majena7",
+          "name": "Majeña7",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5421,
+          "h": 5057
+        },
+        {
+          "id": "majena-majena8",
+          "name": "Majeña8",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1112,
+          "h": 4373
+        },
+        {
+          "id": "majena-majena9",
+          "name": "Majeña9",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1112,
+          "h": 4373
+        },
+        {
+          "id": "majena-majena10",
+          "name": "Majeña10",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 918,
+          "h": 925
+        },
+        {
+          "id": "majena-majena11",
+          "name": "Majeña11",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a11.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a11.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 918,
+          "h": 925
+        },
+        {
+          "id": "majena-majena12",
+          "name": "Majeña12",
+          "svgUrl": "/illustrations/svg/majena/Majen%CC%83a12.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/majena/Majen%CC%83a12.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 886,
+          "h": 975
+        }
+      ]
+    },
+    {
+      "id": "mestiza-ollanta",
+      "name": "Mestiza Ollanta",
+      "coverUrl": "/illustrations/svg/mestiza-ollanta/Copia_de_Mestiza_Ollanta6.svg",
+      "guideUrl": "/illustrations/svg/mestiza-ollanta/Copia_de_Mestiza_Ollanta6.svg",
+      "pieces": [
+        {
+          "id": "mestiza-ollanta-copia-de-mestiza-ollanta6",
+          "name": "Copia_de_Mestiza_Ollanta6",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Copia_de_Mestiza_Ollanta6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Copia_de_Mestiza_Ollanta6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 646,
+          "h": 951
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta",
+          "name": "Mestiza_Ollanta",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 241,
+          "h": 623
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta1",
+          "name": "Mestiza_Ollanta1",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5687,
+          "h": 4179
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta2",
+          "name": "Mestiza_Ollanta2",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1316,
+          "h": 832
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta3",
+          "name": "Mestiza_Ollanta3",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1688,
+          "h": 743
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta4",
+          "name": "Mestiza_Ollanta4",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1314,
+          "h": 765
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta5",
+          "name": "Mestiza_Ollanta5",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1315,
+          "h": 758
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta7",
+          "name": "Mestiza_Ollanta7",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 646,
+          "h": 951
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta8",
+          "name": "Mestiza_Ollanta8",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3398,
+          "h": 6557
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta9",
+          "name": "Mestiza_Ollanta9",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1901,
+          "h": 2053
+        },
+        {
+          "id": "mestiza-ollanta-mestiza-ollanta10",
+          "name": "Mestiza_Ollanta10",
+          "svgUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-ollanta/Mestiza_Ollanta10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 241,
+          "h": 623
+        }
+      ]
+    },
+    {
+      "id": "mestiza-qollacha-1",
+      "name": "Mestiza Qollacha 1",
+      "coverUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_1.svg",
+      "guideUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_1.svg",
+      "pieces": [
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-1",
+          "name": "mestiza_qollacha_1",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3604,
+          "h": 1448
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-2",
+          "name": "mestiza_qollacha_2",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1219,
+          "h": 1211
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-3",
+          "name": "mestiza_qollacha_3",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1219,
+          "h": 1211
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-4",
+          "name": "mestiza_qollacha_4",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1554,
+          "h": 1174
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-5",
+          "name": "mestiza_qollacha_5",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1531,
+          "h": 1274
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-6",
+          "name": "mestiza_qollacha_6",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 6865,
+          "h": 3357
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-7",
+          "name": "mestiza_qollacha_7",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2498,
+          "h": 2300
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-8",
+          "name": "mestiza_qollacha_8",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 8566,
+          "h": 3887
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-9",
+          "name": "mestiza_qollacha_9",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2182,
+          "h": 1681
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-10",
+          "name": "mestiza_qollacha_10",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 318,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-11",
+          "name": "mestiza_qollacha_11",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_11.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_11.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 318,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-1-mestiza-qollacha-12",
+          "name": "mestiza_qollacha_12",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_12.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_12.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4037,
+          "h": 6299
+        }
+      ]
+    },
+    {
+      "id": "mestiza-qollacha-2",
+      "name": "Mestiza Qollacha 2",
+      "coverUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.1.svg",
+      "guideUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.1.svg",
+      "pieces": [
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-1",
+          "name": "Mestiza_qollacha_2.1",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 7799,
+          "h": 4039
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-2",
+          "name": "Mestiza_qollacha_2.2",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5832,
+          "h": 7809
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-3",
+          "name": "Mestiza_qollacha_2.3",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 311,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-4",
+          "name": "Mestiza_qollacha_2.4",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 311,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-5",
+          "name": "Mestiza_qollacha_2.5",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2021,
+          "h": 1863
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-6",
+          "name": "Mestiza_qollacha_2.6",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1312,
+          "h": 963
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-7",
+          "name": "Mestiza_qollacha_2.7",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1312,
+          "h": 963
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-8",
+          "name": "Mestiza_qollacha_2.8",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4849,
+          "h": 1452
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-9",
+          "name": "Mestiza_qollacha_2.9",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 108,
+          "h": 3524
+        },
+        {
+          "id": "mestiza-qollacha-2-mestiza-qollacha-2-10",
+          "name": "Mestiza_qollacha_2.10",
+          "svgUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5685,
+          "h": 3268
+        }
+      ]
+    },
+    {
+      "id": "paloma",
+      "name": "Paloma",
+      "coverUrl": "/illustrations/svg/paloma/Paloma_colonial1.svg",
+      "guideUrl": "/illustrations/svg/paloma/Paloma_colonial1.svg",
+      "pieces": [
+        {
+          "id": "paloma-paloma-colonial1",
+          "name": "Paloma_colonial1",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 7142,
+          "h": 7640
+        },
+        {
+          "id": "paloma-paloma-colonial2",
+          "name": "Paloma_colonial2",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1378,
+          "h": 3182
+        },
+        {
+          "id": "paloma-paloma-colonial3",
+          "name": "Paloma_colonial3",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1111,
+          "h": 4195
+        },
+        {
+          "id": "paloma-paloma-colonial4",
+          "name": "Paloma_colonial4",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2434,
+          "h": 4070
+        },
+        {
+          "id": "paloma-paloma-colonial5",
+          "name": "Paloma_colonial5",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3747,
+          "h": 2748
+        },
+        {
+          "id": "paloma-paloma-colonial6",
+          "name": "Paloma_colonial6",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3775,
+          "h": 1513
+        },
+        {
+          "id": "paloma-paloma-colonial7",
+          "name": "Paloma_colonial7",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2509,
+          "h": 1223
+        },
+        {
+          "id": "paloma-paloma-colonial8",
+          "name": "Paloma_colonial8",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2462,
+          "h": 1233
+        },
+        {
+          "id": "paloma-paloma-colonial9",
+          "name": "Paloma_colonial9",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2330,
+          "h": 1410
+        },
+        {
+          "id": "paloma-paloma-colonial10",
+          "name": "Paloma_colonial10",
+          "svgUrl": "/illustrations/svg/paloma/Paloma_colonial10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/paloma/Paloma_colonial10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2273,
+          "h": 1443
+        }
+      ]
+    },
+    {
+      "id": "pavo-real",
+      "name": "Pavo Real",
+      "coverUrl": "/illustrations/svg/pavo-real/Pavo_Real1.svg",
+      "guideUrl": "/illustrations/svg/pavo-real/Pavo_Real1.svg",
+      "pieces": [
+        {
+          "id": "pavo-real-pavo-real1",
+          "name": "Pavo_Real1",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2255,
+          "h": 5343
+        },
+        {
+          "id": "pavo-real-pavo-real2",
+          "name": "Pavo_Real2",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2010,
+          "h": 2800
+        },
+        {
+          "id": "pavo-real-pavo-real3",
+          "name": "Pavo_Real3",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1787,
+          "h": 3949
+        },
+        {
+          "id": "pavo-real-pavo-real4",
+          "name": "Pavo_Real4",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2186,
+          "h": 4231
+        },
+        {
+          "id": "pavo-real-pavo-real5",
+          "name": "Pavo_Real5",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3551,
+          "h": 3408
+        },
+        {
+          "id": "pavo-real-pavo-real6",
+          "name": "Pavo_Real6",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 4490,
+          "h": 2007
+        },
+        {
+          "id": "pavo-real-pavo-real7",
+          "name": "Pavo_Real7",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1414,
+          "h": 1112
+        },
+        {
+          "id": "pavo-real-pavo-real8",
+          "name": "Pavo_Real8",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1412,
+          "h": 1106
+        },
+        {
+          "id": "pavo-real-pavo-real9",
+          "name": "Pavo_Real9",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1418,
+          "h": 1095
+        },
+        {
+          "id": "pavo-real-pavo-real10",
+          "name": "Pavo_Real10",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2140,
+          "h": 1699
+        },
+        {
+          "id": "pavo-real-pavo-real11",
+          "name": "Pavo_Real11",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real11.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real11.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2906,
+          "h": 1215
+        },
+        {
+          "id": "pavo-real-pavo-real12",
+          "name": "Pavo_Real12",
+          "svgUrl": "/illustrations/svg/pavo-real/Pavo_Real12.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/pavo-real/Pavo_Real12.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2977,
+          "h": 1093
+        }
+      ]
+    },
+    {
+      "id": "qhapaq-qolla",
+      "name": "Qhapaq Qolla",
+      "coverUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla1.svg",
+      "guideUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla1.svg",
+      "pieces": [
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla1",
+          "name": "Qhapaq_qolla1",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3488,
+          "h": 6692
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla2",
+          "name": "Qhapaq_qolla2",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 852,
+          "h": 3499
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla3",
+          "name": "Qhapaq_qolla3",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 848,
+          "h": 3629
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla4",
+          "name": "Qhapaq_qolla4",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5764,
+          "h": 3109
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla5",
+          "name": "Qhapaq_qolla5",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3797,
+          "h": 2191
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla6",
+          "name": "Qhapaq_qolla6",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 982,
+          "h": 1228
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla7",
+          "name": "Qhapaq_qolla7",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1241,
+          "h": 197
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla8",
+          "name": "Qhapaq_qolla8",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3532,
+          "h": 3442
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla9",
+          "name": "Qhapaq_qolla9",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3698,
+          "h": 2963
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla10",
+          "name": "Qhapaq_qolla10",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 124,
+          "h": 5558
+        },
+        {
+          "id": "qhapaq-qolla-qhapaq-qolla11",
+          "name": "Qhapaq_qolla11",
+          "svgUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla11.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla11.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1531,
+          "h": 541
+        }
+      ]
+    },
+    {
+      "id": "tinkus",
+      "name": "Tinkus",
+      "coverUrl": "/illustrations/svg/tinkus/Tinkus_1.svg",
+      "guideUrl": "/illustrations/svg/tinkus/Tinkus_1.svg",
+      "pieces": [
+        {
+          "id": "tinkus-tinkus-1",
+          "name": "Tinkus_1",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2387,
+          "h": 1709
+        },
+        {
+          "id": "tinkus-tinkus-2",
+          "name": "Tinkus_2",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3078,
+          "h": 3883
+        },
+        {
+          "id": "tinkus-tinkus-3",
+          "name": "Tinkus_3",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 979,
+          "h": 713
+        },
+        {
+          "id": "tinkus-tinkus-4",
+          "name": "Tinkus_4",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2664,
+          "h": 678
+        },
+        {
+          "id": "tinkus-tinkus-5",
+          "name": "Tinkus_5",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2659,
+          "h": 684
+        },
+        {
+          "id": "tinkus-tinkus-6",
+          "name": "Tinkus_6",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1006,
+          "h": 1078
+        },
+        {
+          "id": "tinkus-tinkus-7",
+          "name": "Tinkus_7",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2760,
+          "h": 5491
+        },
+        {
+          "id": "tinkus-tinkus-9",
+          "name": "Tinkus_9",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1036,
+          "h": 1023
+        },
+        {
+          "id": "tinkus-tinkus-10",
+          "name": "Tinkus_10",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1036,
+          "h": 1023
+        },
+        {
+          "id": "tinkus-tinkus-11",
+          "name": "Tinkus_11",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_11.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_11.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1257,
+          "h": 1228
+        },
+        {
+          "id": "tinkus-tinkus-12",
+          "name": "Tinkus_12",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_12.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_12.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1257,
+          "h": 1228
+        },
+        {
+          "id": "tinkus-tinkus-13",
+          "name": "Tinkus_13",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_13.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_13.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 6037,
+          "h": 2759
+        },
+        {
+          "id": "tinkus-tinkus-14",
+          "name": "Tinkus_14",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus_14.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus_14.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 6433,
+          "h": 5765
+        },
+        {
+          "id": "tinkus-tinkus8",
+          "name": "Tinkus8",
+          "svgUrl": "/illustrations/svg/tinkus/Tinkus8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/tinkus/Tinkus8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2758,
+          "h": 5491
+        }
+      ]
+    },
+    {
+      "id": "ukuko-1",
+      "name": "Ukuko 1",
+      "coverUrl": "/illustrations/svg/ukuko-1/ukuko_1.svg",
+      "guideUrl": "/illustrations/svg/ukuko-1/ukuko_1.svg",
+      "pieces": [
+        {
+          "id": "ukuko-1-ukuko-1",
+          "name": "ukuko_1",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3754,
+          "h": 2394
+        },
+        {
+          "id": "ukuko-1-ukuko-2",
+          "name": "ukuko_2",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 206,
+          "h": 6203
+        },
+        {
+          "id": "ukuko-1-ukuko-3",
+          "name": "ukuko_3",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1509,
+          "h": 1791
+        },
+        {
+          "id": "ukuko-1-ukuko-4",
+          "name": "ukuko_4",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1153,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-ukuko-5",
+          "name": "ukuko_5",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1152,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-ukuko-6",
+          "name": "ukuko_6",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1153,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-ukuko-7",
+          "name": "ukuko_7",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1153,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-ukuko-8",
+          "name": "ukuko_8",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_8.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_8.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1087,
+          "h": 647
+        },
+        {
+          "id": "ukuko-1-ukuko-9",
+          "name": "ukuko_9",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_9.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_9.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 7631,
+          "h": 4779
+        },
+        {
+          "id": "ukuko-1-ukuko-10",
+          "name": "ukuko_10",
+          "svgUrl": "/illustrations/svg/ukuko-1/ukuko_10.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-1/ukuko_10.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 5219,
+          "h": 6538
+        }
+      ]
+    },
+    {
+      "id": "ukuko-2",
+      "name": "Ukuko 2",
+      "coverUrl": "/illustrations/svg/ukuko-2/ukuko_2.1.svg",
+      "guideUrl": "/illustrations/svg/ukuko-2/ukuko_2.1.svg",
+      "pieces": [
+        {
+          "id": "ukuko-2-ukuko-2-1",
+          "name": "ukuko_2.1",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.1.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.1.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 6425,
+          "h": 8051
+        },
+        {
+          "id": "ukuko-2-ukuko-2-2",
+          "name": "ukuko_2.2",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.2.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.2.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 2641,
+          "h": 4246
+        },
+        {
+          "id": "ukuko-2-ukuko-2-3",
+          "name": "ukuko_2.3",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.3.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.3.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1513,
+          "h": 1686
+        },
+        {
+          "id": "ukuko-2-ukuko-2-4",
+          "name": "ukuko_2.4",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.4.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.4.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 7584,
+          "h": 4931
+        },
+        {
+          "id": "ukuko-2-ukuko-2-5",
+          "name": "ukuko_2.5",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.5.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.5.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1161,
+          "h": 1133
+        },
+        {
+          "id": "ukuko-2-ukuko-2-6",
+          "name": "ukuko_2.6",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.6.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.6.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 1161,
+          "h": 1133
+        },
+        {
+          "id": "ukuko-2-ukuko-2-7",
+          "name": "ukuko_2.7",
+          "svgUrl": "/illustrations/svg/ukuko-2/ukuko_2.7.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/svg/ukuko-2/ukuko_2.7.svg",
+          "fillPngUrl": "",
+          "strokePngUrl": "",
+          "w": 3933,
+          "h": 218
+        }
+      ]
+    },
+    {
+      "id": "flores-fusionado",
+      "name": "Flores Fondo + Linea",
+      "coverUrl": "/illustrations/merged/flores/flores-1-combo.svg",
+      "guideUrl": "/illustrations/merged/flores/flores-1-combo.svg",
+      "pieces": [
+        {
+          "id": "flores-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/flores/flores-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 7661,
+          "h": 5948
+        },
+        {
+          "id": "flores-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/flores/flores-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3738,
+          "h": 3370
+        },
+        {
+          "id": "flores-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/flores/flores-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4808,
+          "h": 4573
+        },
+        {
+          "id": "flores-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/flores/flores-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4715,
+          "h": 4518
+        },
+        {
+          "id": "flores-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/flores/flores-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5749,
+          "h": 4467
+        },
+        {
+          "id": "flores-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/flores/flores-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4796,
+          "h": 4468
+        },
+        {
+          "id": "flores-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/flores/flores-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4491,
+          "h": 4493
+        },
+        {
+          "id": "flores-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/flores/flores-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/flores/flores-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4780,
+          "h": 4466
+        }
+      ]
+    },
+    {
+      "id": "iconos-coloniales-fusionado",
+      "name": "Iconos Coloniales Fondo + Linea",
+      "coverUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-1-combo.svg",
+      "guideUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-1-combo.svg",
+      "pieces": [
+        {
+          "id": "iconos-coloniales-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4617,
+          "h": 1967
+        },
+        {
+          "id": "iconos-coloniales-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4617,
+          "h": 1967
+        },
+        {
+          "id": "iconos-coloniales-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2510,
+          "h": 2351
+        },
+        {
+          "id": "iconos-coloniales-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4008,
+          "h": 4300
+        },
+        {
+          "id": "iconos-coloniales-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4599,
+          "h": 3476
+        },
+        {
+          "id": "iconos-coloniales-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4244,
+          "h": 3558
+        },
+        {
+          "id": "iconos-coloniales-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3700,
+          "h": 2871
+        },
+        {
+          "id": "iconos-coloniales-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2763,
+          "h": 2652
+        },
+        {
+          "id": "iconos-coloniales-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-coloniales/iconos-coloniales-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1815,
+          "h": 1771
+        }
+      ]
+    },
+    {
+      "id": "iconos-incas-fusionado",
+      "name": "Iconos Incas Fondo + Linea",
+      "coverUrl": "/illustrations/merged/iconos-incas/iconos-incas-1-combo.svg",
+      "guideUrl": "/illustrations/merged/iconos-incas/iconos-incas-1-combo.svg",
+      "pieces": [
+        {
+          "id": "iconos-incas-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/iconos-incas/iconos-incas-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-incas/iconos-incas-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5467,
+          "h": 4507
+        },
+        {
+          "id": "iconos-incas-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/iconos-incas/iconos-incas-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/iconos-incas/iconos-incas-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 6622,
+          "h": 3591
+        }
+      ]
+    },
+    {
+      "id": "kachampa-fusionado",
+      "name": "Kachampa Fondo + Linea",
+      "coverUrl": "/illustrations/merged/kachampa/kachampa-1-combo.svg",
+      "guideUrl": "/illustrations/merged/kachampa/kachampa-1-combo.svg",
+      "pieces": [
+        {
+          "id": "kachampa-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1062,
+          "h": 714
+        },
+        {
+          "id": "kachampa-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3620,
+          "h": 6211
+        },
+        {
+          "id": "kachampa-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3365,
+          "h": 3685
+        },
+        {
+          "id": "kachampa-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4885,
+          "h": 1836
+        },
+        {
+          "id": "kachampa-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 987,
+          "h": 2164
+        },
+        {
+          "id": "kachampa-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 987,
+          "h": 2164
+        },
+        {
+          "id": "kachampa-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 6138,
+          "h": 4011
+        },
+        {
+          "id": "kachampa-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3637,
+          "h": 3618
+        },
+        {
+          "id": "kachampa-pieza-12",
+          "name": "Pieza 12",
+          "svgUrl": "/illustrations/merged/kachampa/kachampa-12-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kachampa/kachampa-12-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1132,
+          "h": 1409
+        }
+      ]
+    },
+    {
+      "id": "kukasaru-fusionado",
+      "name": "Kukasaru Fondo + Linea",
+      "coverUrl": "/illustrations/merged/kukasaru/kukasaru-1-combo.svg",
+      "guideUrl": "/illustrations/merged/kukasaru/kukasaru-1-combo.svg",
+      "pieces": [
+        {
+          "id": "kukasaru-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1492,
+          "h": 1561
+        },
+        {
+          "id": "kukasaru-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1806,
+          "h": 4033
+        },
+        {
+          "id": "kukasaru-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1804,
+          "h": 4033
+        },
+        {
+          "id": "kukasaru-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4483,
+          "h": 3900
+        },
+        {
+          "id": "kukasaru-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4091,
+          "h": 6053
+        },
+        {
+          "id": "kukasaru-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2790,
+          "h": 2193
+        },
+        {
+          "id": "kukasaru-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        },
+        {
+          "id": "kukasaru-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        },
+        {
+          "id": "kukasaru-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        },
+        {
+          "id": "kukasaru-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/kukasaru/kukasaru-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/kukasaru/kukasaru-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1365,
+          "h": 1328
+        }
+      ]
+    },
+    {
+      "id": "majena-fusionado",
+      "name": "Majena Fondo + Linea",
+      "coverUrl": "/illustrations/merged/majena/majena-1-combo.svg",
+      "guideUrl": "/illustrations/merged/majena/majena-1-combo.svg",
+      "pieces": [
+        {
+          "id": "majena-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/majena/majena-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2024,
+          "h": 1431
+        },
+        {
+          "id": "majena-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/majena/majena-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 851,
+          "h": 755
+        },
+        {
+          "id": "majena-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/majena/majena-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5683,
+          "h": 5234
+        },
+        {
+          "id": "majena-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/majena/majena-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3081,
+          "h": 3422
+        },
+        {
+          "id": "majena-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/majena/majena-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2557,
+          "h": 882
+        },
+        {
+          "id": "majena-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/majena/majena-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 743,
+          "h": 2346
+        },
+        {
+          "id": "majena-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/majena/majena-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5421,
+          "h": 5057
+        },
+        {
+          "id": "majena-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/majena/majena-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1112,
+          "h": 4373
+        },
+        {
+          "id": "majena-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/majena/majena-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1112,
+          "h": 4373
+        },
+        {
+          "id": "majena-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/majena/majena-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 918,
+          "h": 925
+        },
+        {
+          "id": "majena-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/majena/majena-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 918,
+          "h": 925
+        },
+        {
+          "id": "majena-pieza-12",
+          "name": "Pieza 12",
+          "svgUrl": "/illustrations/merged/majena/majena-12-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/majena/majena-12-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 886,
+          "h": 975
+        }
+      ]
+    },
+    {
+      "id": "mestiza-ollanta-fusionado",
+      "name": "Mestiza Ollanta Fondo + Linea",
+      "coverUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-1-combo.svg",
+      "guideUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-1-combo.svg",
+      "pieces": [
+        {
+          "id": "mestiza-ollanta-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5687,
+          "h": 4179
+        },
+        {
+          "id": "mestiza-ollanta-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1316,
+          "h": 832
+        },
+        {
+          "id": "mestiza-ollanta-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1688,
+          "h": 743
+        },
+        {
+          "id": "mestiza-ollanta-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1314,
+          "h": 765
+        },
+        {
+          "id": "mestiza-ollanta-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1315,
+          "h": 758
+        },
+        {
+          "id": "mestiza-ollanta-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 646,
+          "h": 951
+        },
+        {
+          "id": "mestiza-ollanta-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 646,
+          "h": 951
+        },
+        {
+          "id": "mestiza-ollanta-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3398,
+          "h": 6557
+        },
+        {
+          "id": "mestiza-ollanta-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1901,
+          "h": 2053
+        },
+        {
+          "id": "mestiza-ollanta-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 241,
+          "h": 623
+        },
+        {
+          "id": "mestiza-ollanta-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 241,
+          "h": 623
+        }
+      ]
+    },
+    {
+      "id": "mestiza-qollacha-1-fusionado",
+      "name": "Mestiza Qollacha 1 Fondo + Linea",
+      "coverUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-1-combo.svg",
+      "guideUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-1-combo.svg",
+      "pieces": [
+        {
+          "id": "mestiza-qollacha-1-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3604,
+          "h": 1448
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1219,
+          "h": 1211
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1219,
+          "h": 1211
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1554,
+          "h": 1174
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1531,
+          "h": 1274
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 6865,
+          "h": 3357
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2498,
+          "h": 2300
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 8566,
+          "h": 3887
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2182,
+          "h": 1681
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 318,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 318,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-1-pieza-12",
+          "name": "Pieza 12",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-12-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-12-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4037,
+          "h": 6299
+        }
+      ]
+    },
+    {
+      "id": "mestiza-qollacha-2-fusionado",
+      "name": "Mestiza Qollacha 2 Fondo + Linea",
+      "coverUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-1-combo.svg",
+      "guideUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-1-combo.svg",
+      "pieces": [
+        {
+          "id": "mestiza-qollacha-2-pieza-2-1",
+          "name": "Pieza 2.1",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5832,
+          "h": 7809
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-2",
+          "name": "Pieza 2.2",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 7799,
+          "h": 4039
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-3",
+          "name": "Pieza 2.3",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 311,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-4",
+          "name": "Pieza 2.4",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 311,
+          "h": 805
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-5",
+          "name": "Pieza 2.5",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2021,
+          "h": 1863
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-6",
+          "name": "Pieza 2.6",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1312,
+          "h": 963
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-7",
+          "name": "Pieza 2.7",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1312,
+          "h": 963
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-8",
+          "name": "Pieza 2.8",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4849,
+          "h": 1452
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-9",
+          "name": "Pieza 2.9",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 108,
+          "h": 3524
+        },
+        {
+          "id": "mestiza-qollacha-2-pieza-2-10",
+          "name": "Pieza 2.10",
+          "svgUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5685,
+          "h": 3268
+        }
+      ]
+    },
+    {
+      "id": "paloma-fusionado",
+      "name": "Paloma Fondo + Linea",
+      "coverUrl": "/illustrations/merged/paloma/paloma-1-combo.svg",
+      "guideUrl": "/illustrations/merged/paloma/paloma-1-combo.svg",
+      "pieces": [
+        {
+          "id": "paloma-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/paloma/paloma-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 7142,
+          "h": 7640
+        },
+        {
+          "id": "paloma-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/paloma/paloma-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1378,
+          "h": 3182
+        },
+        {
+          "id": "paloma-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/paloma/paloma-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1111,
+          "h": 4195
+        },
+        {
+          "id": "paloma-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/paloma/paloma-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2434,
+          "h": 4070
+        },
+        {
+          "id": "paloma-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/paloma/paloma-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3747,
+          "h": 2748
+        },
+        {
+          "id": "paloma-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/paloma/paloma-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3775,
+          "h": 1513
+        },
+        {
+          "id": "paloma-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/paloma/paloma-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2509,
+          "h": 1223
+        },
+        {
+          "id": "paloma-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/paloma/paloma-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2462,
+          "h": 1233
+        },
+        {
+          "id": "paloma-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/paloma/paloma-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2330,
+          "h": 1410
+        },
+        {
+          "id": "paloma-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/paloma/paloma-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/paloma/paloma-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2273,
+          "h": 1443
+        }
+      ]
+    },
+    {
+      "id": "pavo-real-fusionado",
+      "name": "Pavo Real Fondo + Linea",
+      "coverUrl": "/illustrations/merged/pavo-real/pavo-real-1-combo.svg",
+      "guideUrl": "/illustrations/merged/pavo-real/pavo-real-1-combo.svg",
+      "pieces": [
+        {
+          "id": "pavo-real-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2255,
+          "h": 5343
+        },
+        {
+          "id": "pavo-real-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2010,
+          "h": 2800
+        },
+        {
+          "id": "pavo-real-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1787,
+          "h": 3949
+        },
+        {
+          "id": "pavo-real-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2186,
+          "h": 4231
+        },
+        {
+          "id": "pavo-real-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3551,
+          "h": 3408
+        },
+        {
+          "id": "pavo-real-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 4490,
+          "h": 2007
+        },
+        {
+          "id": "pavo-real-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1414,
+          "h": 1112
+        },
+        {
+          "id": "pavo-real-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1412,
+          "h": 1106
+        },
+        {
+          "id": "pavo-real-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1418,
+          "h": 1095
+        },
+        {
+          "id": "pavo-real-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2140,
+          "h": 1699
+        },
+        {
+          "id": "pavo-real-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2906,
+          "h": 1215
+        },
+        {
+          "id": "pavo-real-pieza-12",
+          "name": "Pieza 12",
+          "svgUrl": "/illustrations/merged/pavo-real/pavo-real-12-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/pavo-real/pavo-real-12-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2977,
+          "h": 1093
+        }
+      ]
+    },
+    {
+      "id": "qhapaq-qolla-fusionado",
+      "name": "Qhapaq Qolla Fondo + Linea",
+      "coverUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-1-combo.svg",
+      "guideUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-1-combo.svg",
+      "pieces": [
+        {
+          "id": "qhapaq-qolla-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3488,
+          "h": 6692
+        },
+        {
+          "id": "qhapaq-qolla-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 852,
+          "h": 3499
+        },
+        {
+          "id": "qhapaq-qolla-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 848,
+          "h": 3629
+        },
+        {
+          "id": "qhapaq-qolla-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5764,
+          "h": 3109
+        },
+        {
+          "id": "qhapaq-qolla-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3797,
+          "h": 2191
+        },
+        {
+          "id": "qhapaq-qolla-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 982,
+          "h": 1228
+        },
+        {
+          "id": "qhapaq-qolla-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1241,
+          "h": 197
+        },
+        {
+          "id": "qhapaq-qolla-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3532,
+          "h": 3442
+        },
+        {
+          "id": "qhapaq-qolla-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3698,
+          "h": 2963
+        },
+        {
+          "id": "qhapaq-qolla-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 124,
+          "h": 5558
+        },
+        {
+          "id": "qhapaq-qolla-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1531,
+          "h": 541
+        }
+      ]
+    },
+    {
+      "id": "tinkus-fusionado",
+      "name": "Tinkus Fondo + Linea",
+      "coverUrl": "/illustrations/merged/tinkus/tinkus-1-combo.svg",
+      "guideUrl": "/illustrations/merged/tinkus/tinkus-1-combo.svg",
+      "pieces": [
+        {
+          "id": "tinkus-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2387,
+          "h": 1709
+        },
+        {
+          "id": "tinkus-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3078,
+          "h": 3883
+        },
+        {
+          "id": "tinkus-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 979,
+          "h": 713
+        },
+        {
+          "id": "tinkus-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2664,
+          "h": 678
+        },
+        {
+          "id": "tinkus-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2659,
+          "h": 684
+        },
+        {
+          "id": "tinkus-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1006,
+          "h": 1078
+        },
+        {
+          "id": "tinkus-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2760,
+          "h": 5491
+        },
+        {
+          "id": "tinkus-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2758,
+          "h": 5491
+        },
+        {
+          "id": "tinkus-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1036,
+          "h": 1023
+        },
+        {
+          "id": "tinkus-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1036,
+          "h": 1023
+        },
+        {
+          "id": "tinkus-pieza-11",
+          "name": "Pieza 11",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-11-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-11-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1257,
+          "h": 1228
+        },
+        {
+          "id": "tinkus-pieza-12",
+          "name": "Pieza 12",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-12-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-12-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1257,
+          "h": 1228
+        },
+        {
+          "id": "tinkus-pieza-13",
+          "name": "Pieza 13",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-13-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-13-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 6037,
+          "h": 2759
+        },
+        {
+          "id": "tinkus-pieza-14",
+          "name": "Pieza 14",
+          "svgUrl": "/illustrations/merged/tinkus/tinkus-14-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/tinkus/tinkus-14-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 6433,
+          "h": 5765
+        }
+      ]
+    },
+    {
+      "id": "ukuko-1-fusionado",
+      "name": "Ukuko 1 Fondo + Linea",
+      "coverUrl": "/illustrations/merged/ukuko-1/ukuko-1-1-combo.svg",
+      "guideUrl": "/illustrations/merged/ukuko-1/ukuko-1-1-combo.svg",
+      "pieces": [
+        {
+          "id": "ukuko-1-pieza-1",
+          "name": "Pieza 1",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3754,
+          "h": 2394
+        },
+        {
+          "id": "ukuko-1-pieza-2",
+          "name": "Pieza 2",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 206,
+          "h": 6203
+        },
+        {
+          "id": "ukuko-1-pieza-3",
+          "name": "Pieza 3",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1509,
+          "h": 1791
+        },
+        {
+          "id": "ukuko-1-pieza-4",
+          "name": "Pieza 4",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1153,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-pieza-5",
+          "name": "Pieza 5",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1152,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-pieza-6",
+          "name": "Pieza 6",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1153,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-pieza-7",
+          "name": "Pieza 7",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1153,
+          "h": 1129
+        },
+        {
+          "id": "ukuko-1-pieza-8",
+          "name": "Pieza 8",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-8-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-8-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1087,
+          "h": 647
+        },
+        {
+          "id": "ukuko-1-pieza-9",
+          "name": "Pieza 9",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-9-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-9-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 7631,
+          "h": 4779
+        },
+        {
+          "id": "ukuko-1-pieza-10",
+          "name": "Pieza 10",
+          "svgUrl": "/illustrations/merged/ukuko-1/ukuko-1-10-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-1/ukuko-1-10-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 5219,
+          "h": 6538
+        }
+      ]
+    },
+    {
+      "id": "ukuko-2-fusionado",
+      "name": "Ukuko 2 Fondo + Linea",
+      "coverUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-1-combo.svg",
+      "guideUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-1-combo.svg",
+      "pieces": [
+        {
+          "id": "ukuko-2-pieza-2-1",
+          "name": "Pieza 2.1",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-1-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-1-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 6425,
+          "h": 8051
+        },
+        {
+          "id": "ukuko-2-pieza-2-2",
+          "name": "Pieza 2.2",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-2-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-2-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 2641,
+          "h": 4246
+        },
+        {
+          "id": "ukuko-2-pieza-2-3",
+          "name": "Pieza 2.3",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-3-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-3-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1513,
+          "h": 1686
+        },
+        {
+          "id": "ukuko-2-pieza-2-4",
+          "name": "Pieza 2.4",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-4-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-4-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 7584,
+          "h": 4931
+        },
+        {
+          "id": "ukuko-2-pieza-2-5",
+          "name": "Pieza 2.5",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-5-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-5-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1161,
+          "h": 1133
+        },
+        {
+          "id": "ukuko-2-pieza-2-6",
+          "name": "Pieza 2.6",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-6-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-6-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 1161,
+          "h": 1133
+        },
+        {
+          "id": "ukuko-2-pieza-2-7",
+          "name": "Pieza 2.7",
+          "svgUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-7-combo.svg",
+          "pngUrl": "",
+          "previewUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-7-combo.svg",
+          "fillPngUrl": "/merged",
+          "strokePngUrl": "",
+          "w": 3933,
+          "h": 218
+        }
       ]
     }
   ]

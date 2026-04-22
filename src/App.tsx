@@ -42,10 +42,12 @@ import illustrationData from './illustrationManifest.json'
 import type { IllustrationGroup, IllustrationPiece } from './illustrationManifest.types'
 
 const GROUPS: IllustrationGroup[] = illustrationData.groups
+const COLORABLE_GROUPS = GROUPS.filter((group) =>
+  String(group.coverUrl || group.guideUrl || '').includes('/illustrations/merged/'),
+)
 
 const LAYOUT_GAP = 12
 
-/** Resolves `/illustrations/...` against Vite `base` so previews and assets work behind a path prefix. */
 function publicAssetUrl(href: string) {
   if (!String(href ?? '').trim()) return ''
   if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('data:')) {
@@ -57,51 +59,18 @@ function publicAssetUrl(href: string) {
   return new URL(path, `${window.location.origin}${prefix}`).href
 }
 
-/** Miniaturas del picker sin `<img>`: evita el icono de imagen rota del navegador y DOCTYPE/`<image>` rotos. */
-function preparePickerSvgMarkup(raw: string, maxHeightPx: number): string {
-  let s = raw.replace(/^\uFEFF?/, '')
-  const start = s.search(/<svg\b/i)
-  if (start < 0) return ''
-  s = s.slice(start)
-  s = s.replace(/<foreignObject\b[\s\S]*?<\/foreignObject>/gi, '')
-  s = s.replace(/<image\b[\s\S]*?\/>/gi, '')
-  s = s.replace(/<image\b[\s\S]*?<\/image>/gi, '')
-  s = s.replace(/<svg([^>]*)>/i, (_, attrs) => {
-    const a = attrs.replace(/\swidth="[^"]*"/gi, '').replace(/\sheight="[^"]*"/gi, '')
-    return `<svg${a} width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;max-height:${maxHeightPx}px;display:block">`
-  })
-  return s
-}
-
-function SvgPickerPreview({
-  src,
+function PiecePreview({
+  piece,
   maxHeight,
   surfaceColor,
   alignTop,
 }: {
-  src: string
+  piece: IllustrationPiece
   maxHeight: number
   surfaceColor: string
   alignTop?: boolean
 }) {
-  const [markup, setMarkup] = useState<string | null>(null)
-
-  useEffect(() => {
-    let cancelled = false
-    setMarkup(null)
-    fetch(src)
-      .then((r) => r.text())
-      .then((text) => {
-        if (cancelled) return
-        setMarkup(preparePickerSvgMarkup(text, maxHeight) || '')
-      })
-      .catch(() => {
-        if (!cancelled) setMarkup('')
-      })
-    return () => {
-      cancelled = true
-    }
-  }, [src, maxHeight])
+  const previewUrl = publicAssetUrl(piece.previewUrl || piece.svgUrl || piece.pngUrl || '')
 
   return (
     <div
@@ -116,8 +85,19 @@ function SvgPickerPreview({
         overflow: 'hidden',
       }}
     >
-      {markup === null ? null : markup ? (
-        <div style={{ width: '100%', height: '100%', maxHeight }} dangerouslySetInnerHTML={{ __html: markup }} />
+      {previewUrl ? (
+        <img
+          src={previewUrl}
+          alt=""
+          draggable={false}
+          style={{
+            width: '100%',
+            height: '100%',
+            maxHeight,
+            objectFit: 'contain',
+            display: 'block',
+          }}
+        />
       ) : null}
     </div>
   )
@@ -125,7 +105,6 @@ function SvgPickerPreview({
 
 const DEFAULT_PIECE_SIZE = 300
 
-/** Guía de armado (PNG); relación 721×1024. */
 const ASSEMBLY_GUIDE_PNG = '/illustrations/guides/mestiza-qollacha-2.png'
 const ASSEMBLY_GUIDE_W_NAT = 721
 const ASSEMBLY_GUIDE_H_NAT = 1024
@@ -187,6 +166,8 @@ function createIllustrationShape(
   const shapeId = createShapeId()
   const svgUrl = publicAssetUrl(piece.svgUrl)
   const pngUrl = publicAssetUrl(piece.pngUrl)
+  const fillPngUrl = piece.fillPngUrl || ''
+  const strokePngUrl = piece.strokePngUrl || ''
 
   editor.run(() => {
     editor.setCurrentTool('select')
@@ -200,10 +181,12 @@ function createIllustrationShape(
         h: dh,
         svgUrl,
         pngUrl,
+        fillPngUrl,
+        strokePngUrl,
         name: piece.name,
         color: 'black',
         size: 'm',
-        fill: piece.svgUrl.includes('/combos/') ? 'solid' : 'none',
+        fill: piece.svgUrl.includes('/illustrations/merged/') ? 'solid' : 'none',
       },
     })
   })
@@ -292,14 +275,6 @@ function IllustrationPicker() {
     setOpen(false)
     setSelectedGroup(null)
   }, [])
-
-  useEffect(() => {
-    // Preload SVG files for selected group
-    if (!open || !selectedGroup) return
-    selectedGroup.pieces.forEach((p) => {
-      fetch(publicAssetUrl(p.svgUrl)).catch(() => {})
-    })
-  }, [open, selectedGroup])
 
   useEffect(() => {
     if (!open) return
@@ -549,7 +524,7 @@ function IllustrationPicker() {
                     alignContent: 'start',
                   }}
                 >
-                  {GROUPS.map((group) => (
+                  {COLORABLE_GROUPS.map((group) => (
                     <button
                       type="button"
                       key={group.id ?? group.name}
@@ -588,13 +563,25 @@ function IllustrationPicker() {
                         }}
                       >
                         {group.pieces[0] ? (
-                          <SvgPickerPreview
-                            src={publicAssetUrl(group.pieces[0].svgUrl)}
+                          <PiecePreview
+                            piece={group.pieces[0]}
                             maxHeight={200}
                             surfaceColor={tl.surface}
                             alignTop
                           />
                         ) : null}
+                      </div>
+                      <div
+                        style={{
+                          padding: '8px 10px 10px',
+                          fontSize: 11,
+                          fontWeight: 600,
+                          color: tl.text,
+                          textAlign: 'center',
+                          lineHeight: 1.25,
+                        }}
+                      >
+                        {group.name}
                       </div>
                     </button>
                   ))}
@@ -750,12 +737,25 @@ function IllustrationPicker() {
                               {isAdding ? (
                                 <span style={{ fontSize: 11, color: tl.textMuted }}>Agregando…</span>
                               ) : (
-                                <SvgPickerPreview
-                                  src={publicAssetUrl(piece.svgUrl)}
+                                <PiecePreview
+                                  piece={piece}
                                   maxHeight={104}
                                   surfaceColor={tl.surface}
                                 />
                               )}
+                            </div>
+                            <div
+                              style={{
+                                width: '100%',
+                                marginTop: 6,
+                                fontSize: 10,
+                                fontWeight: 600,
+                                color: tl.textMuted,
+                                textAlign: 'center',
+                                lineHeight: 1.25,
+                              }}
+                            >
+                              {piece.name}
                             </div>
                           </button>
                         )

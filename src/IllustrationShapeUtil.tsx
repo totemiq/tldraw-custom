@@ -26,6 +26,8 @@ declare module 'tldraw' {
       h: number
       svgUrl: string
       pngUrl: string
+      fillPngUrl: string
+      strokePngUrl: string
       name: string
       color: TLDefaultColorStyle
       size: TLDefaultSizeStyle
@@ -69,6 +71,7 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const { svgUrl, pngUrl, w, h, color, fill } = shape.props
 
   const rawSvg = useSvgContent(svgUrl)
+  const svgHasEmbeddedImages = !!rawSvg && /<image\b/i.test(rawSvg)
 
   const themeColor = theme[color] || { solid: '#000', semi: 'rgba(0,0,0,0.5)' }
   const strokeColor = typeof themeColor === 'object' && 'solid' in themeColor
@@ -86,6 +89,8 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
    * Fondo (`shape-fill`): paleta + estilo de relleno. Sin relleno en tldraw → blanco.
    * Líneas (`shape-stroke` junto a `shape-fill`): siempre negro; la paleta no las tinta.
    */
+  // Las piezas merged deben responder al color de tldraw aunque el fill style
+  // interno quede en "none". Si no, solo aparenta cambiar el borde.
   const shapeFillPaint = fill === 'none' ? '#ffffff' : innerFillColor
   const isDualLayerIllustration =
     !!rawSvg &&
@@ -110,8 +115,6 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
       .replace(/fill="currentColor"/gi, `fill="${strokeColor}"`)
       .replace(/fill="black"/gi, `fill="${strokeColor}"`)
       .replace(/<foreignObject\b[\s\S]*?<\/foreignObject>/gi, '')
-      .replace(/<image\b[\s\S]*?\/>/gi, '')
-      .replace(/<image\b[\s\S]*?<\/image>/gi, '')
 
     if (isDualLayerIllustration) {
       coloredSvg = coloredSvg.replace(
@@ -123,6 +126,7 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
 
   const pngTrimmed = typeof pngUrl === 'string' ? pngUrl.trim() : ''
   const hasPng = pngTrimmed !== ''
+  const showPngFallback = hasPng && !svgHasEmbeddedImages
   const showSvg = !!coloredSvg
 
   return (
@@ -136,11 +140,10 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
         opacity: 1,
       }}
     >
-      {showSvg && coloredSvg && (
+      {showSvg && coloredSvg ? (
         <div
           style={{
-            position: hasPng ? 'absolute' : 'relative',
-            inset: hasPng ? 0 : undefined,
+            position: 'relative',
             width: '100%',
             height: '100%',
             pointerEvents: 'none',
@@ -148,8 +151,22 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
           }}
           dangerouslySetInnerHTML={{ __html: coloredSvg }}
         />
-      )}
-      {hasPng && (
+      ) : svgHasEmbeddedImages && svgUrl ? (
+        <img
+          src={svgUrl}
+          alt=""
+          draggable={false}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            display: 'block',
+          }}
+        />
+      ) : null}
+      {showPngFallback && (
         <img
           src={pngTrimmed}
           alt=""
@@ -192,6 +209,8 @@ export class IllustrationShapeUtil extends BaseBoxShapeUtil<IllustrationShape> {
     h: T.number,
     svgUrl: T.string,
     pngUrl: T.string,
+    fillPngUrl: T.string,
+    strokePngUrl: T.string,
     name: T.string,
     color: DefaultColorStyle,
     size: DefaultSizeStyle,
@@ -204,6 +223,8 @@ export class IllustrationShapeUtil extends BaseBoxShapeUtil<IllustrationShape> {
       h: 200,
       svgUrl: '',
       pngUrl: '',
+      fillPngUrl: '',
+      strokePngUrl: '',
       name: '',
       color: 'black',
       size: 'm',
