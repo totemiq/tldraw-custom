@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
+import { memo, useState, useCallback, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import {
   Tldraw,
@@ -59,7 +59,7 @@ function publicAssetUrl(href: string) {
   return new URL(path, `${window.location.origin}${prefix}`).href
 }
 
-function PiecePreview({
+const PiecePreview = memo(function PiecePreview({
   piece,
   maxHeight,
   surfaceColor,
@@ -90,6 +90,8 @@ function PiecePreview({
           src={previewUrl}
           alt=""
           draggable={false}
+          loading="lazy"
+          decoding="async"
           style={{
             width: '100%',
             height: '100%',
@@ -101,7 +103,7 @@ function PiecePreview({
       ) : null}
     </div>
   )
-}
+})
 
 const DEFAULT_PIECE_SIZE = 300
 
@@ -155,43 +157,33 @@ function placeAssemblyGuide(
   editor.select(sid)
 }
 
-function createIllustrationShape(
-  editor: ReturnType<typeof useEditor>,
+function createIllustrationShapeData(
   piece: IllustrationPiece,
   pageX: number,
   pageY: number,
   dw: number,
   dh: number,
-): TLShapeId {
+){
   const shapeId = createShapeId()
-  const svgUrl = publicAssetUrl(piece.svgUrl)
-  const pngUrl = publicAssetUrl(piece.pngUrl)
-  const fillPngUrl = piece.fillPngUrl || ''
-  const strokePngUrl = piece.strokePngUrl || ''
 
-  editor.run(() => {
-    editor.setCurrentTool('select')
-    editor.createShape({
-      id: shapeId,
-      type: 'illustration',
-      x: pageX,
-      y: pageY,
-      props: {
-        w: dw,
-        h: dh,
-        svgUrl,
-        pngUrl,
-        fillPngUrl,
-        strokePngUrl,
-        name: piece.name,
-        color: 'black',
-        size: 'm',
-        fill: piece.svgUrl.includes('/illustrations/merged/') ? 'solid' : 'none',
-      },
-    })
-  })
-
-  return shapeId
+  return {
+    id: shapeId,
+    type: 'illustration' as const,
+    x: pageX,
+    y: pageY,
+    props: {
+      w: dw,
+      h: dh,
+      svgUrl: publicAssetUrl(piece.svgUrl),
+      pngUrl: publicAssetUrl(piece.pngUrl),
+      fillPngUrl: piece.fillPngUrl || '',
+      strokePngUrl: piece.strokePngUrl || '',
+      name: piece.name,
+      color: 'black' as const,
+      size: 'm' as const,
+      fill: piece.svgUrl.includes('/illustrations/merged/') ? ('solid' as const) : ('none' as const),
+    },
+  }
 }
 
 function placeIllustrationPieces(
@@ -220,22 +212,28 @@ function placeIllustrationPieces(
   const centre = editor.screenToPage(centreScreen)
   let y = centre.y - gridH / 2
   const shapeIds: TLShapeId[] = []
-
-  rows.forEach((row, ri) => {
+  const shapes = rows.flatMap((row, ri) => {
     const rowW = rowWidths[ri]
     let x = centre.x - rowW / 2
     const rowH = rowHeights[ri]
-    row.forEach(({ piece, dw, dh }) => {
+    const rowShapes = row.map(({ piece, dw, dh }) => {
       const yOff = y + (rowH - dh) / 2
-      shapeIds.push(createIllustrationShape(editor, piece, x, yOff, dw, dh))
+      const shape = createIllustrationShapeData(piece, x, yOff, dw, dh)
+      shapeIds.push(shape.id)
       x += dw + LAYOUT_GAP
+      return shape
     })
     y += rowHeights[ri] + LAYOUT_GAP
+    return rowShapes
   })
 
-  if (shapeIds.length > 0) {
-    editor.select(...shapeIds)
-  }
+  editor.run(() => {
+    editor.setCurrentTool('select')
+    editor.createShapes(shapes)
+    if (shapeIds.length > 0) {
+      editor.select(...shapeIds)
+    }
+  })
 }
 
 function placeSingleIllustrationPiece(
@@ -246,8 +244,12 @@ function placeSingleIllustrationPiece(
   const dw = DEFAULT_PIECE_SIZE
   const dh = DEFAULT_PIECE_SIZE
   const centre = editor.screenToPage(centreScreen)
-  const sid = createIllustrationShape(editor, piece, centre.x - dw / 2, centre.y - dh / 2, dw, dh)
-  editor.select(sid)
+  const shape = createIllustrationShapeData(piece, centre.x - dw / 2, centre.y - dh / 2, dw, dh)
+  editor.run(() => {
+    editor.setCurrentTool('select')
+    editor.createShape(shape)
+    editor.select(shape.id)
+  })
 }
 
 function IllustrationPicker() {
@@ -892,14 +894,6 @@ function ShapesDropdown() {
 }
 
 function CustomToolbar() {
-  const [, setForce] = useState(0)
-  const editor = useEditor()
-
-  useEffect(() => {
-    const unsub = editor.store.listen(() => setForce((prev) => prev + 1))
-    return unsub
-  }, [editor])
-
   return (
     <DefaultToolbar>
       <div

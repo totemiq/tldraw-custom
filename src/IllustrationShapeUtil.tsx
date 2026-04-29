@@ -15,7 +15,7 @@ import type {
   TLDefaultSizeStyle,
   TLDefaultFillStyle,
 } from 'tldraw'
-import { useState, useEffect } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 
 const ILLUSTRATION_TYPE = 'illustration' as const
 
@@ -39,6 +39,8 @@ declare module 'tldraw' {
 type IllustrationShape = TLShape<typeof ILLUSTRATION_TYPE>
 
 const svgCache = new Map<string, string>()
+const svgRequestCache = new Map<string, Promise<string>>()
+const processedSvgCache = new Map<string, string>()
 
 function useSvgContent(url: string): string | null {
   const [content, setContent] = useState<string | null>(() =>
@@ -54,13 +56,24 @@ function useSvgContent(url: string): string | null {
       setContent(svgCache.get(url)!)
       return
     }
-    fetch(url)
-      .then((r) => r.text())
+    const request =
+      svgRequestCache.get(url) ??
+      fetch(url).then((r) => {
+        if (!r.ok) throw new Error(`Failed to load ${url}`)
+        return r.text()
+      })
+
+    svgRequestCache.set(url, request)
+
+    request
       .then((text) => {
         svgCache.set(url, text)
         setContent(text)
       })
-      .catch(() => setContent(null))
+      .catch(() => {
+        svgRequestCache.delete(url)
+        setContent(null)
+      })
   }, [url])
 
   return content
@@ -97,9 +110,14 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
     /\bclass="[^"]*\bshape-fill\b/.test(rawSvg) &&
     /\bclass="[^"]*\bshape-stroke\b/.test(rawSvg)
 
-  let coloredSvg: string | null = null
-  if (rawSvg) {
-    coloredSvg = rawSvg
+  const coloredSvg = useMemo(() => {
+    if (!rawSvg) return null
+
+    const cacheKey = [svgUrl, w, h, strokeColor, shapeFillPaint, isDualLayerIllustration].join('|')
+    const cached = processedSvgCache.get(cacheKey)
+    if (cached) return cached
+
+    let processed = rawSvg
       .replace(/<svg([^>]*)>/, (_, attrs) => {
         let updated = attrs
         updated = updated.replace(/width="[^"]*"/, `width="${w}"`)
@@ -117,12 +135,15 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
       .replace(/<foreignObject\b[\s\S]*?<\/foreignObject>/gi, '')
 
     if (isDualLayerIllustration) {
-      coloredSvg = coloredSvg.replace(
+      processed = processed.replace(
         /(class="[^"]*\bshape-stroke\b[^"]*")(\s[^>]*?)(fill=")([^"]*)(")/gi,
         `$1$2$3#000000$5`,
       )
     }
-  }
+
+    processedSvgCache.set(cacheKey, processed)
+    return processed
+  }, [rawSvg, svgUrl, w, h, strokeColor, shapeFillPaint, isDualLayerIllustration])
 
   const pngTrimmed = typeof pngUrl === 'string' ? pngUrl.trim() : ''
   const hasPng = pngTrimmed !== ''
@@ -156,6 +177,8 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
           src={svgUrl}
           alt=""
           draggable={false}
+          loading="lazy"
+          decoding="async"
           style={{
             width: '100%',
             height: '100%',
@@ -171,6 +194,8 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
           src={pngTrimmed}
           alt=""
           draggable={false}
+          loading="lazy"
+          decoding="async"
           style={{
             position: showSvg ? 'absolute' : 'relative',
             inset: showSvg ? 0 : undefined,
