@@ -18,23 +18,29 @@ body,
 }
 
 @media (max-width: 640px) {
-  .tlui-layout__mobile .tlui-style-panel__wrapper {
+  .tlui-layout__mobile .tlui-popover__content:has(.tlui-style-panel[data-ismobile='true']) {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
-    max-width: calc(100vw - 16px);
+    max-width: calc(100vw - 12px);
   }
 
-  .tlui-layout__mobile .tlui-style-panel {
+  .tlui-layout__mobile .tlui-style-panel[data-ismobile='true'] {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
     width: max-content;
     max-width: none;
     min-width: 148px;
+    overflow: visible;
   }
 
-  .tlui-layout__mobile .tlui-style-panel__section,
-  .tlui-layout__mobile .tlui-style-panel__section__common {
+  .tlui-layout__mobile .tlui-style-panel[data-ismobile='true'] .tlui-style-panel__section,
+  .tlui-layout__mobile .tlui-style-panel[data-ismobile='true'] .tlui-style-panel__section__common {
     width: max-content;
+    flex: 0 0 auto;
   }
 
   .tlui-layout__mobile .tlui-main-toolbar__tools,

@@ -48,8 +48,8 @@ function isMobileDevice() {
 }
 
 const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
-const SHAPE_MAX_RENDER_DIM = 1536
-const SHAPE_MAX_RENDER_PIXELS = 1536 * 1536
+const SHAPE_MAX_RENDER_DIM = 1792
+const SHAPE_MAX_RENDER_PIXELS = 1792 * 1792
 
 function loadImage(url: string) {
   const cached = imageRequestCache.get(url)
@@ -132,7 +132,7 @@ function MaskCanvas({
       const canvas = canvasRef.current
       if (!canvas) return
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const dpr = Math.min(window.devicePixelRatio || 1, 3)
       canvas.width = Math.max(1, Math.round(renderSize.width * dpr))
       canvas.height = Math.max(1, Math.round(renderSize.height * dpr))
 
