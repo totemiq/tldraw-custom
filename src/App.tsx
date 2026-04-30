@@ -63,29 +63,35 @@ function maskIdPart(value: string) {
   return (value || 'empty').replace(/[^a-zA-Z0-9_-]+/g, '_')
 }
 
-function buildMaskSvgMarkup(fillUrl: string, strokeUrl: string, fillColor: string) {
+function buildMaskSvgMarkup(
+  fillUrl: string,
+  strokeUrl: string,
+  fillColor: string,
+  width: number,
+  height: number,
+) {
   const fillMaskId = `fill-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
   const strokeMaskId = `stroke-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
   const fillMask = fillUrl
     ? `
-      <mask id="${fillMaskId}" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
-        <image href="${fillUrl}" width="1" height="1" preserveAspectRatio="xMidYMid meet" />
+      <mask id="${fillMaskId}" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}">
+        <image href="${fillUrl}" xlink:href="${fillUrl}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />
       </mask>
-      <rect width="100%" height="100%" fill="${fillColor}" mask="url(#${fillMaskId})" />
+      <rect x="0" y="0" width="${width}" height="${height}" fill="${fillColor}" mask="url(#${fillMaskId})" />
     `
     : ''
 
   const strokeMask = strokeUrl
     ? `
-      <mask id="${strokeMaskId}" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
-        <image href="${strokeUrl}" width="1" height="1" preserveAspectRatio="xMidYMid meet" />
+      <mask id="${strokeMaskId}" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}">
+        <image href="${strokeUrl}" xlink:href="${strokeUrl}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />
       </mask>
-      <rect width="100%" height="100%" fill="#000000" mask="url(#${strokeMaskId})" />
+      <rect x="0" y="0" width="${width}" height="${height}" fill="#000000" mask="url(#${strokeMaskId})" />
     `
     : ''
 
   return `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
       ${fillMask}
       ${strokeMask}
     </svg>
@@ -95,17 +101,23 @@ function buildMaskSvgMarkup(fillUrl: string, strokeUrl: string, fillColor: strin
 function MaskPreview({
   fillPngUrl,
   strokePngUrl,
+  width,
+  height,
   maxHeight,
   surfaceColor,
 }: {
   fillPngUrl?: string
   strokePngUrl?: string
+  width?: number
+  height?: number
   maxHeight: number
   surfaceColor: string
 }) {
   const fillUrl = publicAssetUrl(fillPngUrl || '')
   const strokeUrl = publicAssetUrl(strokePngUrl || '')
-  const markup = buildMaskSvgMarkup(fillUrl, strokeUrl, '#ffffff')
+  const safeWidth = Math.max(1, width ?? 1024)
+  const safeHeight = Math.max(1, height ?? 1024)
+  const markup = buildMaskSvgMarkup(fillUrl, strokeUrl, '#ffffff', safeWidth, safeHeight)
 
   return (
     <div
@@ -144,6 +156,8 @@ const PiecePreview = memo(function PiecePreview({
       <MaskPreview
         fillPngUrl={piece.fillPngUrl}
         strokePngUrl={piece.strokePngUrl}
+        width={piece.w}
+        height={piece.h}
         maxHeight={maxHeight}
         surfaceColor={surfaceColor}
       />
