@@ -97,6 +97,30 @@ function getCappedRenderSize(
   }
 }
 
+function drawMaskedLayer(
+  ctx: CanvasRenderingContext2D,
+  image: HTMLImageElement,
+  color: string,
+  width: number,
+  height: number,
+) {
+  const scratch = document.createElement('canvas')
+  scratch.width = Math.max(1, Math.round(width))
+  scratch.height = Math.max(1, Math.round(height))
+
+  const scratchCtx = scratch.getContext('2d')
+  if (!scratchCtx) return
+
+  scratchCtx.clearRect(0, 0, scratch.width, scratch.height)
+  scratchCtx.drawImage(image, 0, 0, width, height)
+  scratchCtx.globalCompositeOperation = 'source-in'
+  scratchCtx.fillStyle = color
+  scratchCtx.fillRect(0, 0, width, height)
+  scratchCtx.globalCompositeOperation = 'source-over'
+
+  ctx.drawImage(scratch, 0, 0, width, height)
+}
+
 function MaskPreview({
   fillPngUrl,
   strokePngUrl,
@@ -150,15 +174,11 @@ function MaskPreview({
       if (cancelled) return
 
       if (fillImage) {
-        ctx.drawImage(fillImage, 0, 0, renderSize.width, renderSize.height)
-        ctx.globalCompositeOperation = 'source-in'
-        ctx.fillStyle = '#ffffff'
-        ctx.fillRect(0, 0, renderSize.width, renderSize.height)
-        ctx.globalCompositeOperation = 'source-over'
+        drawMaskedLayer(ctx, fillImage, '#ffffff', renderSize.width, renderSize.height)
       }
 
       if (strokeImage) {
-        ctx.drawImage(strokeImage, 0, 0, renderSize.width, renderSize.height)
+        drawMaskedLayer(ctx, strokeImage, '#000000', renderSize.width, renderSize.height)
       }
     }
 
