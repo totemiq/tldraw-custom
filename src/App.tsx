@@ -59,6 +59,39 @@ function publicAssetUrl(href: string) {
   return new URL(path, `${window.location.origin}${prefix}`).href
 }
 
+function maskIdPart(value: string) {
+  return (value || 'empty').replace(/[^a-zA-Z0-9_-]+/g, '_')
+}
+
+function buildMaskSvgMarkup(fillUrl: string, strokeUrl: string, fillColor: string) {
+  const fillMaskId = `fill-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
+  const strokeMaskId = `stroke-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
+  const fillMask = fillUrl
+    ? `
+      <mask id="${fillMaskId}" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+        <image href="${fillUrl}" width="1" height="1" preserveAspectRatio="xMidYMid meet" />
+      </mask>
+      <rect width="100%" height="100%" fill="${fillColor}" mask="url(#${fillMaskId})" />
+    `
+    : ''
+
+  const strokeMask = strokeUrl
+    ? `
+      <mask id="${strokeMaskId}" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+        <image href="${strokeUrl}" width="1" height="1" preserveAspectRatio="xMidYMid meet" />
+      </mask>
+      <rect width="100%" height="100%" fill="#000000" mask="url(#${strokeMaskId})" />
+    `
+    : ''
+
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
+      ${fillMask}
+      ${strokeMask}
+    </svg>
+  `
+}
+
 function MaskPreview({
   fillPngUrl,
   strokePngUrl,
@@ -72,17 +105,7 @@ function MaskPreview({
 }) {
   const fillUrl = publicAssetUrl(fillPngUrl || '')
   const strokeUrl = publicAssetUrl(strokePngUrl || '')
-
-  const maskLayerStyle = {
-    position: 'absolute' as const,
-    inset: 0,
-    WebkitMaskRepeat: 'no-repeat' as const,
-    WebkitMaskPosition: 'center' as const,
-    WebkitMaskSize: 'contain' as const,
-    maskRepeat: 'no-repeat' as const,
-    maskPosition: 'center' as const,
-    maskSize: 'contain' as const,
-  }
+  const markup = buildMaskSvgMarkup(fillUrl, strokeUrl, '#ffffff')
 
   return (
     <div
@@ -97,28 +120,10 @@ function MaskPreview({
         overflow: 'hidden',
       }}
     >
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-        {fillUrl ? (
-          <div
-            style={{
-              ...maskLayerStyle,
-              background: '#ffffff',
-              WebkitMaskImage: `url("${fillUrl}")`,
-              maskImage: `url("${fillUrl}")`,
-            }}
-          />
-        ) : null}
-        {strokeUrl ? (
-          <div
-            style={{
-              ...maskLayerStyle,
-              background: '#000000',
-              WebkitMaskImage: `url("${strokeUrl}")`,
-              maskImage: `url("${strokeUrl}")`,
-            }}
-          />
-        ) : null}
-      </div>
+      <div
+        style={{ width: '100%', height: '100%', pointerEvents: 'none', userSelect: 'none' }}
+        dangerouslySetInnerHTML={{ __html: markup }}
+      />
     </div>
   )
 }

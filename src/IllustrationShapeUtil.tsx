@@ -42,6 +42,39 @@ const svgCache = new Map<string, string>()
 const svgRequestCache = new Map<string, Promise<string>>()
 const processedSvgCache = new Map<string, string>()
 
+function maskIdPart(value: string) {
+  return (value || 'empty').replace(/[^a-zA-Z0-9_-]+/g, '_')
+}
+
+function buildMaskSvgMarkup(fillUrl: string, strokeUrl: string, fillColor: string) {
+  const fillMaskId = `fill-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
+  const strokeMaskId = `stroke-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
+  const fillMask = fillUrl
+    ? `
+      <mask id="${fillMaskId}" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+        <image href="${fillUrl}" width="1" height="1" preserveAspectRatio="xMidYMid meet" />
+      </mask>
+      <rect width="100%" height="100%" fill="${fillColor}" mask="url(#${fillMaskId})" />
+    `
+    : ''
+
+  const strokeMask = strokeUrl
+    ? `
+      <mask id="${strokeMaskId}" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+        <image href="${strokeUrl}" width="1" height="1" preserveAspectRatio="xMidYMid meet" />
+      </mask>
+      <rect width="100%" height="100%" fill="#000000" mask="url(#${strokeMaskId})" />
+    `
+    : ''
+
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
+      ${fillMask}
+      ${strokeMask}
+    </svg>
+  `
+}
+
 function useSvgContent(url: string): string | null {
   const [content, setContent] = useState<string | null>(() =>
     url ? (svgCache.get(url) ?? null) : null,
@@ -153,19 +186,9 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const hasPng = pngTrimmed !== ''
   const showPngFallback = hasPng && !svgHasEmbeddedImages
   const showSvg = !!coloredSvg
-  const maskLayerStyle = {
-    position: 'absolute' as const,
-    inset: 0,
-    backgroundRepeat: 'no-repeat' as const,
-    backgroundPosition: 'center' as const,
-    backgroundSize: 'contain' as const,
-    WebkitMaskRepeat: 'no-repeat' as const,
-    WebkitMaskPosition: 'center' as const,
-    WebkitMaskSize: 'contain' as const,
-    maskRepeat: 'no-repeat' as const,
-    maskPosition: 'center' as const,
-    maskSize: 'contain' as const,
-  }
+  const maskSvgMarkup = hasMaskLayers
+    ? buildMaskSvgMarkup(fillMaskUrl, strokeMaskUrl, shapeFillPaint)
+    : null
 
   return (
     <HTMLContainer
@@ -179,28 +202,10 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
       }}
     >
       {hasMaskLayers ? (
-        <>
-          {fillMaskUrl ? (
-            <div
-              style={{
-                ...maskLayerStyle,
-                backgroundColor: shapeFillPaint,
-                WebkitMaskImage: `url("${fillMaskUrl}")`,
-                maskImage: `url("${fillMaskUrl}")`,
-              }}
-            />
-          ) : null}
-          {strokeMaskUrl ? (
-            <div
-              style={{
-                ...maskLayerStyle,
-                backgroundColor: '#000000',
-                WebkitMaskImage: `url("${strokeMaskUrl}")`,
-                maskImage: `url("${strokeMaskUrl}")`,
-              }}
-            />
-          ) : null}
-        </>
+        <div
+          style={{ width: '100%', height: '100%', pointerEvents: 'none', userSelect: 'none' }}
+          dangerouslySetInnerHTML={{ __html: maskSvgMarkup ?? '' }}
+        />
       ) : showSvg && coloredSvg ? (
         <div
           style={{
