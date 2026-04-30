@@ -59,6 +59,70 @@ function publicAssetUrl(href: string) {
   return new URL(path, `${window.location.origin}${prefix}`).href
 }
 
+function MaskPreview({
+  fillPngUrl,
+  strokePngUrl,
+  maxHeight,
+  surfaceColor,
+}: {
+  fillPngUrl?: string
+  strokePngUrl?: string
+  maxHeight: number
+  surfaceColor: string
+}) {
+  const fillUrl = publicAssetUrl(fillPngUrl || '')
+  const strokeUrl = publicAssetUrl(strokePngUrl || '')
+
+  const maskLayerStyle = {
+    position: 'absolute' as const,
+    inset: 0,
+    WebkitMaskRepeat: 'no-repeat' as const,
+    WebkitMaskPosition: 'center' as const,
+    WebkitMaskSize: 'contain' as const,
+    maskRepeat: 'no-repeat' as const,
+    maskPosition: 'center' as const,
+    maskSize: 'contain' as const,
+  }
+
+  return (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        maxHeight,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: surfaceColor,
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        {fillUrl ? (
+          <div
+            style={{
+              ...maskLayerStyle,
+              background: '#ffffff',
+              WebkitMaskImage: `url("${fillUrl}")`,
+              maskImage: `url("${fillUrl}")`,
+            }}
+          />
+        ) : null}
+        {strokeUrl ? (
+          <div
+            style={{
+              ...maskLayerStyle,
+              background: '#000000',
+              WebkitMaskImage: `url("${strokeUrl}")`,
+              maskImage: `url("${strokeUrl}")`,
+            }}
+          />
+        ) : null}
+      </div>
+    </div>
+  )
+}
+
 const PiecePreview = memo(function PiecePreview({
   piece,
   maxHeight,
@@ -70,6 +134,17 @@ const PiecePreview = memo(function PiecePreview({
   surfaceColor: string
   alignTop?: boolean
 }) {
+  if (piece.fillPngUrl || piece.strokePngUrl) {
+    return (
+      <MaskPreview
+        fillPngUrl={piece.fillPngUrl}
+        strokePngUrl={piece.strokePngUrl}
+        maxHeight={maxHeight}
+        surfaceColor={surfaceColor}
+      />
+    )
+  }
+
   const previewUrl = publicAssetUrl(piece.previewUrl || piece.svgUrl || piece.pngUrl || '')
 
   return (

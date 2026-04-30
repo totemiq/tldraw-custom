@@ -81,9 +81,13 @@ function useSvgContent(url: string): string | null {
 
 function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const theme = useDefaultColorTheme()
-  const { svgUrl, pngUrl, w, h, color, fill } = shape.props
+  const { svgUrl, pngUrl, fillPngUrl, strokePngUrl, w, h, color, fill } = shape.props
 
-  const rawSvg = useSvgContent(svgUrl)
+  const fillMaskUrl = typeof fillPngUrl === 'string' ? fillPngUrl.trim() : ''
+  const strokeMaskUrl = typeof strokePngUrl === 'string' ? strokePngUrl.trim() : ''
+  const hasMaskLayers = fillMaskUrl !== '' || strokeMaskUrl !== ''
+
+  const rawSvg = useSvgContent(hasMaskLayers ? '' : svgUrl)
   const svgHasEmbeddedImages = !!rawSvg && /<image\b/i.test(rawSvg)
 
   const themeColor = theme[color] || { solid: '#000', semi: 'rgba(0,0,0,0.5)' }
@@ -149,6 +153,19 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const hasPng = pngTrimmed !== ''
   const showPngFallback = hasPng && !svgHasEmbeddedImages
   const showSvg = !!coloredSvg
+  const maskLayerStyle = {
+    position: 'absolute' as const,
+    inset: 0,
+    backgroundRepeat: 'no-repeat' as const,
+    backgroundPosition: 'center' as const,
+    backgroundSize: 'contain' as const,
+    WebkitMaskRepeat: 'no-repeat' as const,
+    WebkitMaskPosition: 'center' as const,
+    WebkitMaskSize: 'contain' as const,
+    maskRepeat: 'no-repeat' as const,
+    maskPosition: 'center' as const,
+    maskSize: 'contain' as const,
+  }
 
   return (
     <HTMLContainer
@@ -161,7 +178,30 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
         opacity: 1,
       }}
     >
-      {showSvg && coloredSvg ? (
+      {hasMaskLayers ? (
+        <>
+          {fillMaskUrl ? (
+            <div
+              style={{
+                ...maskLayerStyle,
+                backgroundColor: shapeFillPaint,
+                WebkitMaskImage: `url("${fillMaskUrl}")`,
+                maskImage: `url("${fillMaskUrl}")`,
+              }}
+            />
+          ) : null}
+          {strokeMaskUrl ? (
+            <div
+              style={{
+                ...maskLayerStyle,
+                backgroundColor: '#000000',
+                WebkitMaskImage: `url("${strokeMaskUrl}")`,
+                maskImage: `url("${strokeMaskUrl}")`,
+              }}
+            />
+          ) : null}
+        </>
+      ) : showSvg && coloredSvg ? (
         <div
           style={{
             position: 'relative',
