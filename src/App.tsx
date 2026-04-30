@@ -4,6 +4,7 @@ import {
   Tldraw,
   useEditor,
   DefaultToolbar,
+  DefaultStylePanel,
   SelectToolbarItem,
   HandToolbarItem,
   DrawToolbarItem,
@@ -33,6 +34,20 @@ import {
   ArrowRightToolbarItem,
   LineToolbarItem,
   createShapeId,
+  type TLUiStylePanelProps,
+  StylePanelSection,
+  StylePanelColorPicker,
+  StylePanelOpacityPicker,
+  StylePanelFillPicker,
+  StylePanelDashPicker,
+  StylePanelSizePicker,
+  StylePanelFontPicker,
+  StylePanelTextAlignPicker,
+  StylePanelLabelAlignPicker,
+  StylePanelGeoShapePicker,
+  StylePanelArrowKindPicker,
+  StylePanelArrowheadPicker,
+  StylePanelSplinePicker,
 } from 'tldraw'
 import type { TLComponents, TLShapeId } from 'tldraw'
 import 'tldraw/tldraw.css'
@@ -937,7 +952,42 @@ function CustomToolbar() {
   )
 }
 
-const components: TLComponents = { Toolbar: CustomToolbar }
+function CustomStylePanel(props: TLUiStylePanelProps) {
+  if (!props.isMobile) {
+    return <DefaultStylePanel {...props} />
+  }
+
+  return (
+    <div className="app-mobile-style-scroll">
+      <DefaultStylePanel {...props}>
+        <div className="app-mobile-style-strip">
+          <StylePanelSection>
+            <StylePanelColorPicker />
+            <StylePanelOpacityPicker />
+          </StylePanelSection>
+          <StylePanelSection>
+            <StylePanelFillPicker />
+            <StylePanelDashPicker />
+            <StylePanelSizePicker />
+          </StylePanelSection>
+          <StylePanelSection>
+            <StylePanelFontPicker />
+            <StylePanelTextAlignPicker />
+            <StylePanelLabelAlignPicker />
+          </StylePanelSection>
+          <StylePanelSection>
+            <StylePanelGeoShapePicker />
+            <StylePanelArrowKindPicker />
+            <StylePanelArrowheadPicker />
+            <StylePanelSplinePicker />
+          </StylePanelSection>
+        </div>
+      </DefaultStylePanel>
+    </div>
+  )
+}
+
+const components: TLComponents = { Toolbar: CustomToolbar, StylePanel: CustomStylePanel }
 const customShapeUtils = [IllustrationShapeUtil]
 
 export default function App() {

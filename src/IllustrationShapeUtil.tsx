@@ -48,8 +48,8 @@ function isMobileDevice() {
 }
 
 const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
-const SHAPE_MAX_RENDER_DIM = 1792
-const SHAPE_MAX_RENDER_PIXELS = 1792 * 1792
+const SHAPE_MAX_RENDER_DIM = 2048
+const SHAPE_MAX_RENDER_PIXELS = 2048 * 2048
 
 function loadImage(url: string) {
   const cached = imageRequestCache.get(url)

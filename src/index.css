@@ -18,7 +18,12 @@ body,
 }
 
 @media (max-width: 640px) {
-  .tlui-layout__mobile .tlui-popover__content:has(.tlui-style-panel[data-ismobile='true']) {
+  .tlui-layout__mobile .tlui-popover__content:has(.app-mobile-style-scroll) {
+    overflow: hidden;
+    max-width: calc(100vw - 12px);
+  }
+
+  .app-mobile-style-scroll {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -26,19 +31,21 @@ body,
     max-width: calc(100vw - 12px);
   }
 
-  .tlui-layout__mobile .tlui-style-panel[data-ismobile='true'] {
+  .app-mobile-style-scroll .tlui-style-panel[data-ismobile='true'] {
+    width: auto;
+    max-width: none;
+    min-width: 148px;
+  }
+
+  .app-mobile-style-strip {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    gap: 0;
     width: max-content;
-    max-width: none;
-    min-width: 148px;
-    overflow: visible;
   }
 
-  .tlui-layout__mobile .tlui-style-panel[data-ismobile='true'] .tlui-style-panel__section,
-  .tlui-layout__mobile .tlui-style-panel[data-ismobile='true'] .tlui-style-panel__section__common {
+  .app-mobile-style-strip .tlui-style-panel__section,
+  .app-mobile-style-strip .tlui-style-panel__section__common {
     width: max-content;
     flex: 0 0 auto;
   }
