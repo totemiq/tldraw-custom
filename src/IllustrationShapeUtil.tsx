@@ -15,7 +15,7 @@ import type {
   TLDefaultSizeStyle,
   TLDefaultFillStyle,
 } from 'tldraw'
-import { useMemo, useState, useEffect, useRef } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 
 const ILLUSTRATION_TYPE = 'illustration' as const
 
@@ -42,137 +42,9 @@ const svgCache = new Map<string, string>()
 const svgRequestCache = new Map<string, Promise<string>>()
 const processedSvgCache = new Map<string, string>()
 
-const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
-const SHAPE_MAX_RENDER_DIM = 1024
-const SHAPE_MAX_RENDER_PIXELS = 1024 * 1024
-
-function loadImage(url: string) {
-  const cached = imageRequestCache.get(url)
-  if (cached) return cached
-
-  const request = new Promise<HTMLImageElement>((resolve, reject) => {
-    const image = new Image()
-    image.decoding = 'async'
-    image.onload = () => resolve(image)
-    image.onerror = () => reject(new Error(`Failed to load ${url}`))
-    image.src = url
-  })
-
-  imageRequestCache.set(url, request)
-  return request
-}
-
-function getCappedRenderSize(
-  sourceWidth: number,
-  sourceHeight: number,
-  maxDimension: number,
-  maxPixels: number,
-) {
-  const width = Math.max(1, sourceWidth)
-  const height = Math.max(1, sourceHeight)
-  const byDimension = maxDimension / Math.max(width, height)
-  const byPixels = Math.sqrt(maxPixels / (width * height))
-  const scale = Math.min(1, byDimension, byPixels)
-
-  return {
-    width: Math.max(1, Math.round(width * scale)),
-    height: Math.max(1, Math.round(height * scale)),
-  }
-}
-
-function drawMaskedLayer(
-  ctx: CanvasRenderingContext2D,
-  image: HTMLImageElement,
-  color: string,
-  width: number,
-  height: number,
-) {
-  const scratch = document.createElement('canvas')
-  scratch.width = Math.max(1, Math.round(width))
-  scratch.height = Math.max(1, Math.round(height))
-
-  const scratchCtx = scratch.getContext('2d')
-  if (!scratchCtx) return
-
-  scratchCtx.clearRect(0, 0, scratch.width, scratch.height)
-  scratchCtx.drawImage(image, 0, 0, width, height)
-  scratchCtx.globalCompositeOperation = 'source-in'
-  scratchCtx.fillStyle = color
-  scratchCtx.fillRect(0, 0, width, height)
-  scratchCtx.globalCompositeOperation = 'source-over'
-
-  ctx.drawImage(scratch, 0, 0, width, height)
-}
-
-function MaskCanvas({
-  fillUrl,
-  strokeUrl,
-  width,
-  height,
-  fillColor,
-}: {
-  fillUrl: string
-  strokeUrl: string
-  width: number
-  height: number
-  fillColor: string
-}) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const renderSize = getCappedRenderSize(width, height, SHAPE_MAX_RENDER_DIM, SHAPE_MAX_RENDER_PIXELS)
-
-  useEffect(() => {
-    let cancelled = false
-
-    async function draw() {
-      const canvas = canvasRef.current
-      if (!canvas) return
-
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      canvas.width = Math.max(1, Math.round(renderSize.width * dpr))
-      canvas.height = Math.max(1, Math.round(renderSize.height * dpr))
-
-      const ctx = canvas.getContext('2d')
-      if (!ctx) return
-
-      ctx.setTransform(1, 0, 0, 1, 0, 0)
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      ctx.scale(dpr, dpr)
-
-      const [fillImage, strokeImage] = await Promise.all([
-        fillUrl ? loadImage(fillUrl).catch(() => null) : Promise.resolve(null),
-        strokeUrl ? loadImage(strokeUrl).catch(() => null) : Promise.resolve(null),
-      ])
-
-      if (cancelled) return
-
-      if (fillImage) {
-        drawMaskedLayer(ctx, fillImage, fillColor, renderSize.width, renderSize.height)
-      }
-
-      if (strokeImage) {
-        drawMaskedLayer(ctx, strokeImage, '#000000', renderSize.width, renderSize.height)
-      }
-    }
-
-    void draw()
-
-    return () => {
-      cancelled = true
-    }
-  }, [fillUrl, strokeUrl, renderSize.width, renderSize.height, fillColor])
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'block',
-        pointerEvents: 'none',
-        userSelect: 'none',
-      }}
-    />
-  )
+function isMobileDevice() {
+  if (typeof navigator === 'undefined') return false
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 }
 
 function useSvgContent(url: string): string | null {
@@ -215,12 +87,13 @@ function useSvgContent(url: string): string | null {
 function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const theme = useDefaultColorTheme()
   const { svgUrl, pngUrl, fillPngUrl, strokePngUrl, w, h, color, fill } = shape.props
+  const mobile = isMobileDevice()
 
   const fillMaskUrl = typeof fillPngUrl === 'string' ? fillPngUrl.trim() : ''
   const strokeMaskUrl = typeof strokePngUrl === 'string' ? strokePngUrl.trim() : ''
   const hasMaskLayers = fillMaskUrl !== '' || strokeMaskUrl !== ''
 
-  const rawSvg = useSvgContent(hasMaskLayers ? '' : svgUrl)
+  const rawSvg = useSvgContent(hasMaskLayers && mobile ? '' : svgUrl)
   const svgHasEmbeddedImages = !!rawSvg && /<image\b/i.test(rawSvg)
 
   const themeColor = theme[color] || { solid: '#000', semi: 'rgba(0,0,0,0.5)' }
@@ -298,13 +171,21 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
         opacity: 1,
       }}
     >
-      {hasMaskLayers ? (
-        <MaskCanvas
-          fillUrl={fillMaskUrl}
-          strokeUrl={strokeMaskUrl}
-          width={Math.max(1, w)}
-          height={Math.max(1, h)}
-          fillColor={shapeFillPaint}
+      {hasMaskLayers && mobile && hasPng ? (
+        <img
+          src={pngTrimmed}
+          alt=""
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            display: 'block',
+          }}
         />
       ) : showSvg && coloredSvg ? (
         <div
