@@ -59,43 +59,22 @@ function publicAssetUrl(href: string) {
   return new URL(path, `${window.location.origin}${prefix}`).href
 }
 
-function maskIdPart(value: string) {
-  return (value || 'empty').replace(/[^a-zA-Z0-9_-]+/g, '_')
-}
+const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
 
-function buildMaskSvgMarkup(
-  fillUrl: string,
-  strokeUrl: string,
-  fillColor: string,
-  width: number,
-  height: number,
-) {
-  const fillMaskId = `fill-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
-  const strokeMaskId = `stroke-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
-  const fillMask = fillUrl
-    ? `
-      <mask id="${fillMaskId}" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}">
-        <image href="${fillUrl}" xlink:href="${fillUrl}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />
-      </mask>
-      <rect x="0" y="0" width="${width}" height="${height}" fill="${fillColor}" mask="url(#${fillMaskId})" />
-    `
-    : ''
+function loadImage(url: string) {
+  const cached = imageRequestCache.get(url)
+  if (cached) return cached
 
-  const strokeMask = strokeUrl
-    ? `
-      <mask id="${strokeMaskId}" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}">
-        <image href="${strokeUrl}" xlink:href="${strokeUrl}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />
-      </mask>
-      <rect x="0" y="0" width="${width}" height="${height}" fill="#000000" mask="url(#${strokeMaskId})" />
-    `
-    : ''
+  const request = new Promise<HTMLImageElement>((resolve, reject) => {
+    const image = new Image()
+    image.decoding = 'async'
+    image.onload = () => resolve(image)
+    image.onerror = () => reject(new Error(`Failed to load ${url}`))
+    image.src = url
+  })
 
-  return `
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
-      ${fillMask}
-      ${strokeMask}
-    </svg>
-  `
+  imageRequestCache.set(url, request)
+  return request
 }
 
 function MaskPreview({
@@ -117,7 +96,52 @@ function MaskPreview({
   const strokeUrl = publicAssetUrl(strokePngUrl || '')
   const safeWidth = Math.max(1, width ?? 1024)
   const safeHeight = Math.max(1, height ?? 1024)
-  const markup = buildMaskSvgMarkup(fillUrl, strokeUrl, '#ffffff', safeWidth, safeHeight)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function draw() {
+      const canvas = canvasRef.current
+      if (!canvas) return
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = Math.max(1, Math.round(safeWidth * dpr))
+      canvas.height = Math.max(1, Math.round(safeHeight * dpr))
+
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.scale(dpr, dpr)
+
+      const [fillImage, strokeImage] = await Promise.all([
+        fillUrl ? loadImage(fillUrl).catch(() => null) : Promise.resolve(null),
+        strokeUrl ? loadImage(strokeUrl).catch(() => null) : Promise.resolve(null),
+      ])
+
+      if (cancelled) return
+
+      if (fillImage) {
+        ctx.drawImage(fillImage, 0, 0, safeWidth, safeHeight)
+        ctx.globalCompositeOperation = 'source-in'
+        ctx.fillStyle = '#ffffff'
+        ctx.fillRect(0, 0, safeWidth, safeHeight)
+        ctx.globalCompositeOperation = 'source-over'
+      }
+
+      if (strokeImage) {
+        ctx.drawImage(strokeImage, 0, 0, safeWidth, safeHeight)
+      }
+    }
+
+    void draw()
+
+    return () => {
+      cancelled = true
+    }
+  }, [fillUrl, strokeUrl, safeWidth, safeHeight])
 
   return (
     <div
@@ -132,9 +156,15 @@ function MaskPreview({
         overflow: 'hidden',
       }}
     >
-      <div
-        style={{ width: '100%', height: '100%', pointerEvents: 'none', userSelect: 'none' }}
-        dangerouslySetInnerHTML={{ __html: markup }}
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'block',
+          pointerEvents: 'none',
+          userSelect: 'none',
+        }}
       />
     </div>
   )

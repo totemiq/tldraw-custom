@@ -15,7 +15,7 @@ import type {
   TLDefaultSizeStyle,
   TLDefaultFillStyle,
 } from 'tldraw'
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 
 const ILLUSTRATION_TYPE = 'illustration' as const
 
@@ -42,43 +42,96 @@ const svgCache = new Map<string, string>()
 const svgRequestCache = new Map<string, Promise<string>>()
 const processedSvgCache = new Map<string, string>()
 
-function maskIdPart(value: string) {
-  return (value || 'empty').replace(/[^a-zA-Z0-9_-]+/g, '_')
+const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
+
+function loadImage(url: string) {
+  const cached = imageRequestCache.get(url)
+  if (cached) return cached
+
+  const request = new Promise<HTMLImageElement>((resolve, reject) => {
+    const image = new Image()
+    image.decoding = 'async'
+    image.onload = () => resolve(image)
+    image.onerror = () => reject(new Error(`Failed to load ${url}`))
+    image.src = url
+  })
+
+  imageRequestCache.set(url, request)
+  return request
 }
 
-function buildMaskSvgMarkup(
-  fillUrl: string,
-  strokeUrl: string,
-  fillColor: string,
-  width: number,
-  height: number,
-) {
-  const fillMaskId = `fill-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
-  const strokeMaskId = `stroke-mask-${maskIdPart(fillUrl)}-${maskIdPart(strokeUrl)}`
-  const fillMask = fillUrl
-    ? `
-      <mask id="${fillMaskId}" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}">
-        <image href="${fillUrl}" xlink:href="${fillUrl}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />
-      </mask>
-      <rect x="0" y="0" width="${width}" height="${height}" fill="${fillColor}" mask="url(#${fillMaskId})" />
-    `
-    : ''
+function MaskCanvas({
+  fillUrl,
+  strokeUrl,
+  width,
+  height,
+  fillColor,
+}: {
+  fillUrl: string
+  strokeUrl: string
+  width: number
+  height: number
+  fillColor: string
+}) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const strokeMask = strokeUrl
-    ? `
-      <mask id="${strokeMaskId}" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="${width}" height="${height}">
-        <image href="${strokeUrl}" xlink:href="${strokeUrl}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />
-      </mask>
-      <rect x="0" y="0" width="${width}" height="${height}" fill="#000000" mask="url(#${strokeMaskId})" />
-    `
-    : ''
+  useEffect(() => {
+    let cancelled = false
 
-  return `
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;display:block;">
-      ${fillMask}
-      ${strokeMask}
-    </svg>
-  `
+    async function draw() {
+      const canvas = canvasRef.current
+      if (!canvas) return
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = Math.max(1, Math.round(width * dpr))
+      canvas.height = Math.max(1, Math.round(height * dpr))
+
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.scale(dpr, dpr)
+
+      const [fillImage, strokeImage] = await Promise.all([
+        fillUrl ? loadImage(fillUrl).catch(() => null) : Promise.resolve(null),
+        strokeUrl ? loadImage(strokeUrl).catch(() => null) : Promise.resolve(null),
+      ])
+
+      if (cancelled) return
+
+      if (fillImage) {
+        ctx.drawImage(fillImage, 0, 0, width, height)
+        ctx.globalCompositeOperation = 'source-in'
+        ctx.fillStyle = fillColor
+        ctx.fillRect(0, 0, width, height)
+        ctx.globalCompositeOperation = 'source-over'
+      }
+
+      if (strokeImage) {
+        ctx.drawImage(strokeImage, 0, 0, width, height)
+      }
+    }
+
+    void draw()
+
+    return () => {
+      cancelled = true
+    }
+  }, [fillUrl, strokeUrl, width, height, fillColor])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'block',
+        pointerEvents: 'none',
+        userSelect: 'none',
+      }}
+    />
+  )
 }
 
 function useSvgContent(url: string): string | null {
@@ -192,9 +245,6 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const hasPng = pngTrimmed !== ''
   const showPngFallback = hasPng && !svgHasEmbeddedImages
   const showSvg = !!coloredSvg
-  const maskSvgMarkup = hasMaskLayers
-    ? buildMaskSvgMarkup(fillMaskUrl, strokeMaskUrl, shapeFillPaint, Math.max(1, w), Math.max(1, h))
-    : null
 
   return (
     <HTMLContainer
@@ -208,9 +258,12 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
       }}
     >
       {hasMaskLayers ? (
-        <div
-          style={{ width: '100%', height: '100%', pointerEvents: 'none', userSelect: 'none' }}
-          dangerouslySetInnerHTML={{ __html: maskSvgMarkup ?? '' }}
+        <MaskCanvas
+          fillUrl={fillMaskUrl}
+          strokeUrl={strokeMaskUrl}
+          width={Math.max(1, w)}
+          height={Math.max(1, h)}
+          fillColor={shapeFillPaint}
         />
       ) : showSvg && coloredSvg ? (
         <div
