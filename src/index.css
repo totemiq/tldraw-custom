@@ -16,3 +16,30 @@ body,
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
+
+@media (max-width: 640px) {
+  .tlui-layout__mobile .tlui-style-panel__wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    max-width: calc(100vw - 16px);
+  }
+
+  .tlui-layout__mobile .tlui-style-panel {
+    width: max-content;
+    max-width: none;
+    min-width: 148px;
+  }
+
+  .tlui-layout__mobile .tlui-style-panel__section,
+  .tlui-layout__mobile .tlui-style-panel__section__common {
+    width: max-content;
+  }
+
+  .tlui-layout__mobile .tlui-main-toolbar__tools,
+  .tlui-layout__mobile .tlui-toolbar,
+  .tlui-layout__mobile .tlui-toolbar__row {
+    touch-action: pan-x;
+  }
+}

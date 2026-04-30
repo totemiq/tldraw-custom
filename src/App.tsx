@@ -908,6 +908,7 @@ function CustomToolbar() {
           maxWidth: 'calc(100vw - 16px)',
           WebkitOverflowScrolling: 'touch',
           scrollbarWidth: 'none',
+          touchAction: 'pan-x',
         }}
       >
         <style>{`
