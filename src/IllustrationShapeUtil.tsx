@@ -43,6 +43,8 @@ const svgRequestCache = new Map<string, Promise<string>>()
 const processedSvgCache = new Map<string, string>()
 
 const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
+const SHAPE_MAX_RENDER_DIM = 1024
+const SHAPE_MAX_RENDER_PIXELS = 1024 * 1024
 
 function loadImage(url: string) {
   const cached = imageRequestCache.get(url)
@@ -60,6 +62,24 @@ function loadImage(url: string) {
   return request
 }
 
+function getCappedRenderSize(
+  sourceWidth: number,
+  sourceHeight: number,
+  maxDimension: number,
+  maxPixels: number,
+) {
+  const width = Math.max(1, sourceWidth)
+  const height = Math.max(1, sourceHeight)
+  const byDimension = maxDimension / Math.max(width, height)
+  const byPixels = Math.sqrt(maxPixels / (width * height))
+  const scale = Math.min(1, byDimension, byPixels)
+
+  return {
+    width: Math.max(1, Math.round(width * scale)),
+    height: Math.max(1, Math.round(height * scale)),
+  }
+}
+
 function MaskCanvas({
   fillUrl,
   strokeUrl,
@@ -74,6 +94,7 @@ function MaskCanvas({
   fillColor: string
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const renderSize = getCappedRenderSize(width, height, SHAPE_MAX_RENDER_DIM, SHAPE_MAX_RENDER_PIXELS)
 
   useEffect(() => {
     let cancelled = false
@@ -83,8 +104,8 @@ function MaskCanvas({
       if (!canvas) return
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      canvas.width = Math.max(1, Math.round(width * dpr))
-      canvas.height = Math.max(1, Math.round(height * dpr))
+      canvas.width = Math.max(1, Math.round(renderSize.width * dpr))
+      canvas.height = Math.max(1, Math.round(renderSize.height * dpr))
 
       const ctx = canvas.getContext('2d')
       if (!ctx) return
@@ -101,15 +122,15 @@ function MaskCanvas({
       if (cancelled) return
 
       if (fillImage) {
-        ctx.drawImage(fillImage, 0, 0, width, height)
+        ctx.drawImage(fillImage, 0, 0, renderSize.width, renderSize.height)
         ctx.globalCompositeOperation = 'source-in'
         ctx.fillStyle = fillColor
-        ctx.fillRect(0, 0, width, height)
+        ctx.fillRect(0, 0, renderSize.width, renderSize.height)
         ctx.globalCompositeOperation = 'source-over'
       }
 
       if (strokeImage) {
-        ctx.drawImage(strokeImage, 0, 0, width, height)
+        ctx.drawImage(strokeImage, 0, 0, renderSize.width, renderSize.height)
       }
     }
 
@@ -118,7 +139,7 @@ function MaskCanvas({
     return () => {
       cancelled = true
     }
-  }, [fillUrl, strokeUrl, width, height, fillColor])
+  }, [fillUrl, strokeUrl, renderSize.width, renderSize.height, fillColor])
 
   return (
     <canvas

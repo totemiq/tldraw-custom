@@ -60,6 +60,8 @@ function publicAssetUrl(href: string) {
 }
 
 const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
+const PREVIEW_MAX_RENDER_DIM = 320
+const PREVIEW_MAX_RENDER_PIXELS = 320 * 320
 
 function loadImage(url: string) {
   const cached = imageRequestCache.get(url)
@@ -75,6 +77,24 @@ function loadImage(url: string) {
 
   imageRequestCache.set(url, request)
   return request
+}
+
+function getCappedRenderSize(
+  sourceWidth: number,
+  sourceHeight: number,
+  maxDimension: number,
+  maxPixels: number,
+) {
+  const width = Math.max(1, sourceWidth)
+  const height = Math.max(1, sourceHeight)
+  const byDimension = maxDimension / Math.max(width, height)
+  const byPixels = Math.sqrt(maxPixels / (width * height))
+  const scale = Math.min(1, byDimension, byPixels)
+
+  return {
+    width: Math.max(1, Math.round(width * scale)),
+    height: Math.max(1, Math.round(height * scale)),
+  }
 }
 
 function MaskPreview({
@@ -96,6 +116,12 @@ function MaskPreview({
   const strokeUrl = publicAssetUrl(strokePngUrl || '')
   const safeWidth = Math.max(1, width ?? 1024)
   const safeHeight = Math.max(1, height ?? 1024)
+  const renderSize = getCappedRenderSize(
+    safeWidth,
+    safeHeight,
+    PREVIEW_MAX_RENDER_DIM,
+    PREVIEW_MAX_RENDER_PIXELS,
+  )
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -106,8 +132,8 @@ function MaskPreview({
       if (!canvas) return
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      canvas.width = Math.max(1, Math.round(safeWidth * dpr))
-      canvas.height = Math.max(1, Math.round(safeHeight * dpr))
+      canvas.width = Math.max(1, Math.round(renderSize.width * dpr))
+      canvas.height = Math.max(1, Math.round(renderSize.height * dpr))
 
       const ctx = canvas.getContext('2d')
       if (!ctx) return
@@ -124,15 +150,15 @@ function MaskPreview({
       if (cancelled) return
 
       if (fillImage) {
-        ctx.drawImage(fillImage, 0, 0, safeWidth, safeHeight)
+        ctx.drawImage(fillImage, 0, 0, renderSize.width, renderSize.height)
         ctx.globalCompositeOperation = 'source-in'
         ctx.fillStyle = '#ffffff'
-        ctx.fillRect(0, 0, safeWidth, safeHeight)
+        ctx.fillRect(0, 0, renderSize.width, renderSize.height)
         ctx.globalCompositeOperation = 'source-over'
       }
 
       if (strokeImage) {
-        ctx.drawImage(strokeImage, 0, 0, safeWidth, safeHeight)
+        ctx.drawImage(strokeImage, 0, 0, renderSize.width, renderSize.height)
       }
     }
 
@@ -141,7 +167,7 @@ function MaskPreview({
     return () => {
       cancelled = true
     }
-  }, [fillUrl, strokeUrl, safeWidth, safeHeight])
+  }, [fillUrl, strokeUrl, renderSize.width, renderSize.height])
 
   return (
     <div
