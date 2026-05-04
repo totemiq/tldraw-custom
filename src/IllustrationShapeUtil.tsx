@@ -230,7 +230,7 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const strokeMaskUrl = typeof strokePngUrl === 'string' ? strokePngUrl.trim() : ''
   const hasMaskLayers = fillMaskUrl !== '' || strokeMaskUrl !== ''
 
-  const rawSvg = useSvgContent(hasMaskLayers && mobile ? '' : svgUrl)
+  const rawSvg = useSvgContent(svgUrl)
   const svgHasEmbeddedImages = !!rawSvg && /<image\b/i.test(rawSvg)
 
   const themeColor = theme[color] || { solid: '#000', semi: 'rgba(0,0,0,0.5)' }
@@ -309,7 +309,7 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
         opacity: 1,
       }}
     >
-      {hasMaskLayers && mobile ? (
+      {!showSvg && hasMaskLayers && mobile ? (
         <MaskCanvas
           fillUrl={fillMaskUrl}
           strokeUrl={strokeMaskUrl}

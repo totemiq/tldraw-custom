@@ -931,18 +931,20 @@ function ShapesDropdown() {
 }
 
 function CustomToolbar() {
+  const isMobile = window.innerWidth < 600
+
   return (
     <DefaultToolbar>
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          flexWrap: window.innerWidth < 600 ? 'nowrap' : 'wrap',
+          flexWrap: isMobile ? 'nowrap' : 'wrap',
           justifyContent: 'flex-start',
           gap: 4,
-          padding: '4px',
+          padding: isMobile ? '4px 10px 4px 4px' : '4px',
           overflowX: 'auto',
-          maxWidth: 'calc(100vw - 16px)',
+          maxWidth: isMobile ? 'calc(100vw - 88px)' : 'calc(100vw - 16px)',
           WebkitOverflowScrolling: 'touch',
           scrollbarWidth: 'none',
           touchAction: 'pan-x',
