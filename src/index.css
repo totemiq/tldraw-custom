@@ -19,7 +19,7 @@ body,
 
 @media (max-width: 640px) {
   .tlui-layout__mobile .tlui-popover__content:has(.app-mobile-style-scroll) {
-    overflow: hidden;
+    overflow: visible;
     max-width: calc(100vw - 12px);
   }
 
@@ -29,12 +29,13 @@ body,
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x;
     max-width: calc(100vw - 12px);
+    padding: 0 6px 6px;
   }
 
   .app-mobile-style-scroll .tlui-style-panel[data-ismobile='true'] {
     width: auto;
     max-width: none;
-    min-width: 148px;
+    min-width: 184px;
   }
 
   .app-mobile-style-strip {
@@ -42,12 +43,22 @@ body,
     flex-direction: row;
     align-items: stretch;
     width: max-content;
+    gap: 8px;
+    padding-right: 8px;
   }
 
   .app-mobile-style-strip .tlui-style-panel__section,
   .app-mobile-style-strip .tlui-style-panel__section__common {
     width: max-content;
     flex: 0 0 auto;
+    min-width: 184px;
+    overflow: visible;
+  }
+
+  .app-mobile-style-strip .tlui-style-panel__section .tlui-toolbar,
+  .app-mobile-style-strip .tlui-style-panel__section [data-testid^='style.'] {
+    width: max-content;
+    min-width: 100%;
   }
 
   .tlui-layout__mobile .tlui-main-toolbar__tools,

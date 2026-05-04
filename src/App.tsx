@@ -120,7 +120,8 @@ const PiecePreview = memo(function PiecePreview({
   )
 })
 
-const DEFAULT_PIECE_SIZE = 300
+const DEFAULT_PIECE_LONGEST_SIDE = 300
+const MIN_PIECE_SIDE = 96
 
 const ASSEMBLY_GUIDE_PNG = '/illustrations/guides/mestiza-qollacha-2.png'
 const ASSEMBLY_GUIDE_W_NAT = 721
@@ -201,6 +202,25 @@ function createIllustrationShapeData(
   }
 }
 
+function getPieceDimensions(piece: IllustrationPiece) {
+  const sourceW = piece.w && piece.w > 0 ? piece.w : DEFAULT_PIECE_LONGEST_SIDE
+  const sourceH = piece.h && piece.h > 0 ? piece.h : DEFAULT_PIECE_LONGEST_SIDE
+
+  const maxSide = Math.max(sourceW, sourceH, 1)
+  const minSide = Math.max(Math.min(sourceW, sourceH), 1)
+
+  let scale = DEFAULT_PIECE_LONGEST_SIDE / maxSide
+  const scaledMinSide = minSide * scale
+  if (scaledMinSide < MIN_PIECE_SIDE) {
+    scale = Math.max(scale, MIN_PIECE_SIDE / minSide)
+  }
+
+  return {
+    dw: Math.max(1, Math.round(sourceW * scale)),
+    dh: Math.max(1, Math.round(sourceH * scale)),
+  }
+}
+
 function placeIllustrationPieces(
   editor: ReturnType<typeof useEditor>,
   pieces: IllustrationPiece[],
@@ -209,7 +229,7 @@ function placeIllustrationPieces(
   if (pieces.length === 0) return
 
   const scaled = pieces.map((p) => {
-    return { piece: p, dw: DEFAULT_PIECE_SIZE, dh: DEFAULT_PIECE_SIZE }
+    return { piece: p, ...getPieceDimensions(p) }
   })
 
   const cols = Math.min(5, Math.max(1, Math.ceil(Math.sqrt(scaled.length))))
@@ -256,8 +276,7 @@ function placeSingleIllustrationPiece(
   piece: IllustrationPiece,
   centreScreen: { x: number; y: number },
 ) {
-  const dw = DEFAULT_PIECE_SIZE
-  const dh = DEFAULT_PIECE_SIZE
+  const { dw, dh } = getPieceDimensions(piece)
   const centre = editor.screenToPage(centreScreen)
   const shape = createIllustrationShapeData(piece, centre.x - dw / 2, centre.y - dh / 2, dw, dh)
   editor.run(() => {
@@ -365,7 +384,9 @@ function IllustrationPicker() {
     <>
       <button
         ref={buttonRef}
-        onPointerDown={() => {
+        type="button"
+        onPointerDown={(e) => {
+          e.preventDefault()
           if (open) closePanel()
           else openPanel()
         }}
@@ -847,7 +868,8 @@ function ShapesDropdown() {
       <button
         ref={buttonRef}
         type="button"
-        onPointerDown={() => {
+        onPointerDown={(e) => {
+          e.preventDefault()
           if (open) closePanel()
           else openPanel()
         }}

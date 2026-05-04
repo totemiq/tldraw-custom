@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components, react-hooks/set-state-in-effect */
+
 import {
   BaseBoxShapeUtil,
   HTMLContainer,
@@ -48,8 +50,8 @@ function isMobileDevice() {
 }
 
 const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
-const SHAPE_MAX_RENDER_DIM = 2048
-const SHAPE_MAX_RENDER_PIXELS = 2048 * 2048
+const SHAPE_MAX_RENDER_DIM = 4096
+const SHAPE_MAX_RENDER_PIXELS = 4096 * 4096
 
 function loadImage(url: string) {
   const cached = imageRequestCache.get(url)
@@ -141,6 +143,8 @@ function MaskCanvas({
 
       ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.imageSmoothingEnabled = true
+      ctx.imageSmoothingQuality = 'high'
       ctx.scale(dpr, dpr)
 
       const [fillImage, strokeImage] = await Promise.all([
@@ -290,8 +294,9 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
 
   const pngTrimmed = typeof pngUrl === 'string' ? pngUrl.trim() : ''
   const hasPng = pngTrimmed !== ''
-  const showPngFallback = hasPng && !svgHasEmbeddedImages
   const showSvg = !!coloredSvg
+  const showSvgImageFallback = !showSvg && svgHasEmbeddedImages && svgUrl
+  const showPngFallback = hasPng && !showSvg && !showSvgImageFallback
 
   return (
     <HTMLContainer
@@ -323,7 +328,7 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
           }}
           dangerouslySetInnerHTML={{ __html: coloredSvg }}
         />
-      ) : svgHasEmbeddedImages && svgUrl ? (
+      ) : showSvgImageFallback ? (
         <img
           src={svgUrl}
           alt=""
