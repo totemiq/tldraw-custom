@@ -58,10 +58,11 @@ import type { IllustrationGroup, IllustrationPiece } from './illustrationManifes
 
 const GROUPS: IllustrationGroup[] = illustrationData.groups
 const COLORABLE_GROUPS = GROUPS.filter((group) =>
-  String(group.coverUrl || group.guideUrl || '').includes('/illustrations/merged/'),
+  group.pieces.some((piece) => String(piece.svgUrl || '').includes('/illustrations/merged/')),
 )
 
 const LAYOUT_GAP = 12
+const GUIDE_LONGEST_SIDE = 520
 
 function publicAssetUrl(href: string) {
   if (!String(href ?? '').trim()) return ''
@@ -120,24 +121,106 @@ const PiecePreview = memo(function PiecePreview({
   )
 })
 
+function ImagePreview({
+  url,
+  maxHeight,
+  surfaceColor,
+  alignTop,
+}: {
+  url: string
+  maxHeight: number
+  surfaceColor: string
+  alignTop?: boolean
+}) {
+  const previewUrl = publicAssetUrl(url)
+
+  return (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        maxHeight,
+        display: 'flex',
+        alignItems: alignTop ? 'flex-start' : 'center',
+        justifyContent: 'center',
+        background: surfaceColor,
+        overflow: 'hidden',
+      }}
+    >
+      {previewUrl ? (
+        <img
+          src={previewUrl}
+          alt=""
+          draggable={false}
+          loading="lazy"
+          decoding="async"
+          style={{
+            width: '100%',
+            height: '100%',
+            maxHeight,
+            objectFit: 'contain',
+            display: 'block',
+          }}
+        />
+      ) : null}
+    </div>
+  )
+}
+
 const DEFAULT_PIECE_LONGEST_SIDE = 300
 const MIN_PIECE_SIDE = 96
 
-const ASSEMBLY_GUIDE_PNG = '/illustrations/guides/mestiza-qollacha-2.png'
-const ASSEMBLY_GUIDE_W_NAT = 721
-const ASSEMBLY_GUIDE_H_NAT = 1024
-const ASSEMBLY_GUIDE_DISPLAY_W = 380
-const ASSEMBLY_GUIDE_DISPLAY_H = Math.round(
-  (ASSEMBLY_GUIDE_DISPLAY_W * ASSEMBLY_GUIDE_H_NAT) / ASSEMBLY_GUIDE_W_NAT,
-)
+const imageDimensionCache = new Map<string, Promise<{ width: number; height: number }>>()
 
-function createAssemblyGuideShape(
+function getGroupPreviewUrl(group: IllustrationGroup) {
+  return group.coverUrl || group.guideUrl || group.pieces[0]?.pngUrl || group.pieces[0]?.previewUrl || group.pieces[0]?.svgUrl || ''
+}
+
+function getGroupGuideUrl(group: IllustrationGroup) {
+  return group.guideUrl || group.coverUrl || group.pieces[0]?.pngUrl || group.pieces[0]?.previewUrl || group.pieces[0]?.svgUrl || ''
+}
+
+function loadImageDimensions(url: string) {
+  const cached = imageDimensionCache.get(url)
+  if (cached) return cached
+
+  const request = new Promise<{ width: number; height: number }>((resolve, reject) => {
+    const image = new Image()
+    image.decoding = 'async'
+    image.onload = () => {
+      resolve({
+        width: image.naturalWidth || image.width || GUIDE_LONGEST_SIDE,
+        height: image.naturalHeight || image.height || GUIDE_LONGEST_SIDE,
+      })
+    }
+    image.onerror = () => reject(new Error(`Failed to load ${url}`))
+    image.src = url
+  })
+
+  imageDimensionCache.set(url, request)
+  return request
+}
+
+function getGuideDisplayDimensions(width: number, height: number) {
+  const maxSide = Math.max(width, height, 1)
+  const scale = GUIDE_LONGEST_SIDE / maxSide
+
+  return {
+    w: Math.max(1, Math.round(width * scale)),
+    h: Math.max(1, Math.round(height * scale)),
+  }
+}
+
+function createGuideShape(
   editor: ReturnType<typeof useEditor>,
+  guideUrl: string,
+  name: string,
   pageX: number,
   pageY: number,
+  width: number,
+  height: number,
 ): TLShapeId {
   const shapeId = createShapeId()
-  const pngUrl = publicAssetUrl(ASSEMBLY_GUIDE_PNG)
   editor.run(() => {
     editor.setCurrentTool('select')
     editor.createShape({
@@ -146,11 +229,11 @@ function createAssemblyGuideShape(
       x: pageX,
       y: pageY,
       props: {
-        w: ASSEMBLY_GUIDE_DISPLAY_W,
-        h: ASSEMBLY_GUIDE_DISPLAY_H,
+        w: width,
+        h: height,
         svgUrl: '',
-        pngUrl,
-        name: 'Guía armado',
+        pngUrl: guideUrl,
+        name,
         color: 'black',
         size: 'm',
         fill: 'none',
@@ -160,15 +243,31 @@ function createAssemblyGuideShape(
   return shapeId
 }
 
-function placeAssemblyGuide(
+async function placeAssemblyGuide(
   editor: ReturnType<typeof useEditor>,
+  group: IllustrationGroup,
   centreScreen: { x: number; y: number },
 ) {
+  const guideUrl = publicAssetUrl(getGroupGuideUrl(group))
+  if (!guideUrl) return
+
+  let dimensions = { width: GUIDE_LONGEST_SIDE, height: GUIDE_LONGEST_SIDE }
+  try {
+    dimensions = await loadImageDimensions(guideUrl)
+  } catch {
+    imageDimensionCache.delete(guideUrl)
+  }
+
+  const { w, h } = getGuideDisplayDimensions(dimensions.width, dimensions.height)
   const centre = editor.screenToPage(centreScreen)
-  const sid = createAssemblyGuideShape(
+  const sid = createGuideShape(
     editor,
-    centre.x - ASSEMBLY_GUIDE_DISPLAY_W / 2,
-    centre.y - ASSEMBLY_GUIDE_DISPLAY_H / 2,
+    guideUrl,
+    `Guía ${group.name}`,
+    centre.x - w / 2,
+    centre.y - h / 2,
+    w,
+    h,
   )
   editor.select(sid)
 }
@@ -356,12 +455,12 @@ function IllustrationPicker() {
     [editor, adding],
   )
 
-  const handleGuideClick = useCallback(async () => {
+  const handleGuideClick = useCallback(async (group: IllustrationGroup) => {
     if (adding) return
     setAdding('guide')
     try {
       const centre = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-      placeAssemblyGuide(editor, centre)
+      await placeAssemblyGuide(editor, group, centre)
     } finally {
       setAdding(null)
     }
@@ -600,9 +699,9 @@ function IllustrationPicker() {
                           boxSizing: 'border-box',
                         }}
                       >
-                        {group.pieces[0] ? (
-                          <PiecePreview
-                            piece={group.pieces[0]}
+                        {getGroupPreviewUrl(group) ? (
+                          <ImagePreview
+                            url={getGroupPreviewUrl(group)}
                             maxHeight={200}
                             surfaceColor={tl.surface}
                             alignTop
@@ -662,7 +761,7 @@ function IllustrationPicker() {
                     </div>
                     <button
                       type="button"
-                      onClick={() => handleGuideClick()}
+                      onClick={() => handleGuideClick(selectedGroup)}
                       disabled={!!adding}
                       aria-label="Agregar guía de armado al lienzo"
                       style={{
@@ -678,7 +777,7 @@ function IllustrationPicker() {
                       }}
                     >
                       <img
-                        src={publicAssetUrl(ASSEMBLY_GUIDE_PNG)}
+                        src={publicAssetUrl(getGroupGuideUrl(selectedGroup))}
                         alt=""
                         draggable={false}
                         style={{

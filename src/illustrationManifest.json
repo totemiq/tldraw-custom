@@ -206,8 +206,8 @@
     {
       "id": "iconos-incas",
       "name": "Iconos Incas",
-      "coverUrl": "/illustrations/svg/iconos-incas/Icono_Inca_1.svg",
-      "guideUrl": "/illustrations/svg/iconos-incas/Icono_Inca_1.svg",
+      "coverUrl": "/illustrations/guides/ordered/iconos-incas.png",
+      "guideUrl": "/illustrations/guides/ordered/iconos-incas.png",
       "pieces": [
         {
           "id": "iconos-incas-icono-inca-1",
@@ -236,8 +236,8 @@
     {
       "id": "kachampa",
       "name": "Kachampa",
-      "coverUrl": "/illustrations/svg/kachampa/kachampa1.svg",
-      "guideUrl": "/illustrations/svg/kachampa/kachampa1.svg",
+      "coverUrl": "/illustrations/guides/ordered/kachampa.png",
+      "guideUrl": "/illustrations/guides/ordered/kachampa.png",
       "pieces": [
         {
           "id": "kachampa-kachampa1",
@@ -376,8 +376,8 @@
     {
       "id": "kukasaru",
       "name": "Kukasaru",
-      "coverUrl": "/illustrations/svg/kukasaru/kukasaru1.svg",
-      "guideUrl": "/illustrations/svg/kukasaru/kukasaru1.svg",
+      "coverUrl": "/illustrations/guides/ordered/kukasaru.png",
+      "guideUrl": "/illustrations/guides/ordered/kukasaru.png",
       "pieces": [
         {
           "id": "kukasaru-kukasaru1",
@@ -494,8 +494,8 @@
     {
       "id": "majena",
       "name": "Majena",
-      "coverUrl": "/illustrations/svg/majena/Majen%CC%83a1.svg",
-      "guideUrl": "/illustrations/svg/majena/Majen%CC%83a1.svg",
+      "coverUrl": "/illustrations/guides/ordered/majena.png",
+      "guideUrl": "/illustrations/guides/ordered/majena.png",
       "pieces": [
         {
           "id": "majena-majena1",
@@ -634,8 +634,8 @@
     {
       "id": "mestiza-ollanta",
       "name": "Mestiza Ollanta",
-      "coverUrl": "/illustrations/svg/mestiza-ollanta/Copia_de_Mestiza_Ollanta6.svg",
-      "guideUrl": "/illustrations/svg/mestiza-ollanta/Copia_de_Mestiza_Ollanta6.svg",
+      "coverUrl": "/illustrations/guides/ordered/mestiza-ollanta.png",
+      "guideUrl": "/illustrations/guides/ordered/mestiza-ollanta.png",
       "pieces": [
         {
           "id": "mestiza-ollanta-copia-de-mestiza-ollanta6",
@@ -763,8 +763,8 @@
     {
       "id": "mestiza-qollacha-1",
       "name": "Mestiza Qollacha 1",
-      "coverUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_1.svg",
-      "guideUrl": "/illustrations/svg/mestiza-qollacha-1/mestiza_qollacha_1.svg",
+      "coverUrl": "/illustrations/guides/ordered/mestiza-qollacha-1.png",
+      "guideUrl": "/illustrations/guides/ordered/mestiza-qollacha-1.png",
       "pieces": [
         {
           "id": "mestiza-qollacha-1-mestiza-qollacha-1",
@@ -903,8 +903,8 @@
     {
       "id": "mestiza-qollacha-2",
       "name": "Mestiza Qollacha 2",
-      "coverUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.1.svg",
-      "guideUrl": "/illustrations/svg/mestiza-qollacha-2/Mestiza_qollacha_2.1.svg",
+      "coverUrl": "/illustrations/guides/ordered/mestiza-qollacha-2.png",
+      "guideUrl": "/illustrations/guides/ordered/mestiza-qollacha-2.png",
       "pieces": [
         {
           "id": "mestiza-qollacha-2-mestiza-qollacha-2-1",
@@ -1021,8 +1021,8 @@
     {
       "id": "paloma",
       "name": "Paloma",
-      "coverUrl": "/illustrations/svg/paloma/Paloma_colonial1.svg",
-      "guideUrl": "/illustrations/svg/paloma/Paloma_colonial1.svg",
+      "coverUrl": "/illustrations/guides/ordered/paloma.jpg",
+      "guideUrl": "/illustrations/guides/ordered/paloma.jpg",
       "pieces": [
         {
           "id": "paloma-paloma-colonial1",
@@ -1139,8 +1139,8 @@
     {
       "id": "pavo-real",
       "name": "Pavo Real",
-      "coverUrl": "/illustrations/svg/pavo-real/Pavo_Real1.svg",
-      "guideUrl": "/illustrations/svg/pavo-real/Pavo_Real1.svg",
+      "coverUrl": "/illustrations/guides/ordered/pavo-real.png",
+      "guideUrl": "/illustrations/guides/ordered/pavo-real.png",
       "pieces": [
         {
           "id": "pavo-real-pavo-real1",
@@ -1279,8 +1279,8 @@
     {
       "id": "qhapaq-qolla",
       "name": "Qhapaq Qolla",
-      "coverUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla1.svg",
-      "guideUrl": "/illustrations/svg/qhapaq-qolla/Qhapaq_qolla1.svg",
+      "coverUrl": "/illustrations/guides/ordered/qhapaq-qolla.png",
+      "guideUrl": "/illustrations/guides/ordered/qhapaq-qolla.png",
       "pieces": [
         {
           "id": "qhapaq-qolla-qhapaq-qolla1",
@@ -1408,8 +1408,8 @@
     {
       "id": "tinkus",
       "name": "Tinkus",
-      "coverUrl": "/illustrations/svg/tinkus/Tinkus_1.svg",
-      "guideUrl": "/illustrations/svg/tinkus/Tinkus_1.svg",
+      "coverUrl": "/illustrations/guides/ordered/tinkus.png",
+      "guideUrl": "/illustrations/guides/ordered/tinkus.png",
       "pieces": [
         {
           "id": "tinkus-tinkus-1",
@@ -1570,8 +1570,8 @@
     {
       "id": "ukuko-1",
       "name": "Ukuko 1",
-      "coverUrl": "/illustrations/svg/ukuko-1/ukuko_1.svg",
-      "guideUrl": "/illustrations/svg/ukuko-1/ukuko_1.svg",
+      "coverUrl": "/illustrations/guides/ordered/ukuko-1.png",
+      "guideUrl": "/illustrations/guides/ordered/ukuko-1.png",
       "pieces": [
         {
           "id": "ukuko-1-ukuko-1",
@@ -1688,8 +1688,8 @@
     {
       "id": "ukuko-2",
       "name": "Ukuko 2",
-      "coverUrl": "/illustrations/svg/ukuko-2/ukuko_2.1.svg",
-      "guideUrl": "/illustrations/svg/ukuko-2/ukuko_2.1.svg",
+      "coverUrl": "/illustrations/guides/ordered/ukuko-2.png",
+      "guideUrl": "/illustrations/guides/ordered/ukuko-2.png",
       "pieces": [
         {
           "id": "ukuko-2-ukuko-2-1",
@@ -1976,8 +1976,8 @@
     {
       "id": "iconos-incas-fusionado",
       "name": "Iconos Incas Fondo + Linea",
-      "coverUrl": "/illustrations/merged/iconos-incas/iconos-incas-1-combo.svg",
-      "guideUrl": "/illustrations/merged/iconos-incas/iconos-incas-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/iconos-incas.png",
+      "guideUrl": "/illustrations/guides/ordered/iconos-incas.png",
       "pieces": [
         {
           "id": "iconos-incas-pieza-1",
@@ -2006,8 +2006,8 @@
     {
       "id": "kachampa-fusionado",
       "name": "Kachampa Fondo + Linea",
-      "coverUrl": "/illustrations/merged/kachampa/kachampa-1-combo.svg",
-      "guideUrl": "/illustrations/merged/kachampa/kachampa-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/kachampa.png",
+      "guideUrl": "/illustrations/guides/ordered/kachampa.png",
       "pieces": [
         {
           "id": "kachampa-pieza-1",
@@ -2146,8 +2146,8 @@
     {
       "id": "kukasaru-fusionado",
       "name": "Kukasaru Fondo + Linea",
-      "coverUrl": "/illustrations/merged/kukasaru/kukasaru-1-combo.svg",
-      "guideUrl": "/illustrations/merged/kukasaru/kukasaru-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/kukasaru.png",
+      "guideUrl": "/illustrations/guides/ordered/kukasaru.png",
       "pieces": [
         {
           "id": "kukasaru-pieza-1",
@@ -2264,8 +2264,8 @@
     {
       "id": "majena-fusionado",
       "name": "Majena Fondo + Linea",
-      "coverUrl": "/illustrations/merged/majena/majena-1-combo.svg",
-      "guideUrl": "/illustrations/merged/majena/majena-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/majena.png",
+      "guideUrl": "/illustrations/guides/ordered/majena.png",
       "pieces": [
         {
           "id": "majena-pieza-1",
@@ -2404,8 +2404,8 @@
     {
       "id": "mestiza-ollanta-fusionado",
       "name": "Mestiza Ollanta Fondo + Linea",
-      "coverUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-1-combo.svg",
-      "guideUrl": "/illustrations/merged/mestiza-ollanta/mestiza-ollanta-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/mestiza-ollanta.png",
+      "guideUrl": "/illustrations/guides/ordered/mestiza-ollanta.png",
       "pieces": [
         {
           "id": "mestiza-ollanta-pieza-1",
@@ -2533,8 +2533,8 @@
     {
       "id": "mestiza-qollacha-1-fusionado",
       "name": "Mestiza Qollacha 1 Fondo + Linea",
-      "coverUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-1-combo.svg",
-      "guideUrl": "/illustrations/merged/mestiza-qollacha-1/mestiza-qollacha-1-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/mestiza-qollacha-1.png",
+      "guideUrl": "/illustrations/guides/ordered/mestiza-qollacha-1.png",
       "pieces": [
         {
           "id": "mestiza-qollacha-1-pieza-1",
@@ -2673,8 +2673,8 @@
     {
       "id": "mestiza-qollacha-2-fusionado",
       "name": "Mestiza Qollacha 2 Fondo + Linea",
-      "coverUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-1-combo.svg",
-      "guideUrl": "/illustrations/merged/mestiza-qollacha-2/mestiza-qollacha-2-2-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/mestiza-qollacha-2.png",
+      "guideUrl": "/illustrations/guides/ordered/mestiza-qollacha-2.png",
       "pieces": [
         {
           "id": "mestiza-qollacha-2-pieza-2-1",
@@ -2791,8 +2791,8 @@
     {
       "id": "paloma-fusionado",
       "name": "Paloma Fondo + Linea",
-      "coverUrl": "/illustrations/merged/paloma/paloma-1-combo.svg",
-      "guideUrl": "/illustrations/merged/paloma/paloma-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/paloma.jpg",
+      "guideUrl": "/illustrations/guides/ordered/paloma.jpg",
       "pieces": [
         {
           "id": "paloma-pieza-1",
@@ -2909,8 +2909,8 @@
     {
       "id": "pavo-real-fusionado",
       "name": "Pavo Real Fondo + Linea",
-      "coverUrl": "/illustrations/merged/pavo-real/pavo-real-1-combo.svg",
-      "guideUrl": "/illustrations/merged/pavo-real/pavo-real-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/pavo-real.png",
+      "guideUrl": "/illustrations/guides/ordered/pavo-real.png",
       "pieces": [
         {
           "id": "pavo-real-pieza-1",
@@ -3049,8 +3049,8 @@
     {
       "id": "qhapaq-qolla-fusionado",
       "name": "Qhapaq Qolla Fondo + Linea",
-      "coverUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-1-combo.svg",
-      "guideUrl": "/illustrations/merged/qhapaq-qolla/qhapaq-qolla-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/qhapaq-qolla.png",
+      "guideUrl": "/illustrations/guides/ordered/qhapaq-qolla.png",
       "pieces": [
         {
           "id": "qhapaq-qolla-pieza-1",
@@ -3178,8 +3178,8 @@
     {
       "id": "tinkus-fusionado",
       "name": "Tinkus Fondo + Linea",
-      "coverUrl": "/illustrations/merged/tinkus/tinkus-1-combo.svg",
-      "guideUrl": "/illustrations/merged/tinkus/tinkus-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/tinkus.png",
+      "guideUrl": "/illustrations/guides/ordered/tinkus.png",
       "pieces": [
         {
           "id": "tinkus-pieza-1",
@@ -3340,8 +3340,8 @@
     {
       "id": "ukuko-1-fusionado",
       "name": "Ukuko 1 Fondo + Linea",
-      "coverUrl": "/illustrations/merged/ukuko-1/ukuko-1-1-combo.svg",
-      "guideUrl": "/illustrations/merged/ukuko-1/ukuko-1-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/ukuko-1.png",
+      "guideUrl": "/illustrations/guides/ordered/ukuko-1.png",
       "pieces": [
         {
           "id": "ukuko-1-pieza-1",
@@ -3458,8 +3458,8 @@
     {
       "id": "ukuko-2-fusionado",
       "name": "Ukuko 2 Fondo + Linea",
-      "coverUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-1-combo.svg",
-      "guideUrl": "/illustrations/merged/ukuko-2/ukuko-2-2-1-combo.svg",
+      "coverUrl": "/illustrations/guides/ordered/ukuko-2.png",
+      "guideUrl": "/illustrations/guides/ordered/ukuko-2.png",
       "pieces": [
         {
           "id": "ukuko-2-pieza-2-1",
