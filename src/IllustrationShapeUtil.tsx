@@ -45,25 +45,56 @@ const svgRequestCache = new Map<string, Promise<string>>()
 const processedSvgCache = new Map<string, string>()
 
 function isMobileDevice() {
-  if (typeof navigator === 'undefined') return false
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false
+  return (
+    window.innerWidth <= 768 ||
+    window.matchMedia?.('(pointer: coarse)').matches ||
+    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  )
 }
 
 const imageRequestCache = new Map<string, Promise<HTMLImageElement>>()
 const SHAPE_MAX_RENDER_DIM = 4096
 const SHAPE_MAX_RENDER_PIXELS = 4096 * 4096
+const MOBILE_SHAPE_MAX_RENDER_DIM = 1536
+const MOBILE_SHAPE_MAX_RENDER_PIXELS = 1536 * 1536
+const MAX_MOBILE_IMAGE_LOADS = 2
+let activeMobileImageLoads = 0
+const queuedMobileImageLoads: Array<() => void> = []
 
-function loadImage(url: string) {
+function runQueuedMobileImageLoad<T>(load: () => Promise<T>) {
+  return new Promise<T>((resolve, reject) => {
+    const run = () => {
+      activeMobileImageLoads += 1
+      load()
+        .then(resolve, reject)
+        .finally(() => {
+          activeMobileImageLoads -= 1
+          const next = queuedMobileImageLoads.shift()
+          if (next) next()
+        })
+    }
+
+    if (activeMobileImageLoads < MAX_MOBILE_IMAGE_LOADS) {
+      run()
+    } else {
+      queuedMobileImageLoads.push(run)
+    }
+  })
+}
+
+function loadImage(url: string, queued = false) {
   const cached = imageRequestCache.get(url)
   if (cached) return cached
 
-  const request = new Promise<HTMLImageElement>((resolve, reject) => {
+  const requestImage = () => new Promise<HTMLImageElement>((resolve, reject) => {
     const image = new Image()
     image.decoding = 'async'
     image.onload = () => resolve(image)
     image.onerror = () => reject(new Error(`Failed to load ${url}`))
     image.src = url
   })
+  const request = queued ? runQueuedMobileImageLoad(requestImage) : requestImage()
 
   imageRequestCache.set(url, request)
   return request
@@ -117,15 +148,22 @@ function MaskCanvas({
   width,
   height,
   fillColor,
+  mobile,
 }: {
   fillUrl: string
   strokeUrl: string
   width: number
   height: number
   fillColor: string
+  mobile: boolean
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const renderSize = getCappedRenderSize(width, height, SHAPE_MAX_RENDER_DIM, SHAPE_MAX_RENDER_PIXELS)
+  const renderSize = getCappedRenderSize(
+    width,
+    height,
+    mobile ? MOBILE_SHAPE_MAX_RENDER_DIM : SHAPE_MAX_RENDER_DIM,
+    mobile ? MOBILE_SHAPE_MAX_RENDER_PIXELS : SHAPE_MAX_RENDER_PIXELS,
+  )
 
   useEffect(() => {
     let cancelled = false
@@ -148,8 +186,8 @@ function MaskCanvas({
       ctx.scale(dpr, dpr)
 
       const [fillImage, strokeImage] = await Promise.all([
-        fillUrl ? loadImage(fillUrl).catch(() => null) : Promise.resolve(null),
-        strokeUrl ? loadImage(strokeUrl).catch(() => null) : Promise.resolve(null),
+        fillUrl ? loadImage(fillUrl, mobile).catch(() => null) : Promise.resolve(null),
+        strokeUrl ? loadImage(strokeUrl, mobile).catch(() => null) : Promise.resolve(null),
       ])
 
       if (cancelled) return
@@ -168,7 +206,7 @@ function MaskCanvas({
     return () => {
       cancelled = true
     }
-  }, [fillUrl, strokeUrl, renderSize.width, renderSize.height, fillColor])
+  }, [fillUrl, strokeUrl, renderSize.width, renderSize.height, fillColor, mobile])
 
   return (
     <canvas
@@ -229,8 +267,12 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const fillMaskUrl = typeof fillPngUrl === 'string' ? fillPngUrl.trim() : ''
   const strokeMaskUrl = typeof strokePngUrl === 'string' ? strokePngUrl.trim() : ''
   const hasMaskLayers = fillMaskUrl !== '' || strokeMaskUrl !== ''
+  const pngTrimmed = typeof pngUrl === 'string' ? pngUrl.trim() : ''
+  const hasPng = pngTrimmed !== ''
+  const preferMobileRaster = mobile && (hasMaskLayers || hasPng)
+  const shouldLoadSvg = !preferMobileRaster || (!hasPng && !hasMaskLayers)
 
-  const rawSvg = useSvgContent(svgUrl)
+  const rawSvg = useSvgContent(shouldLoadSvg ? svgUrl : '')
   const svgHasEmbeddedImages = !!rawSvg && /<image\b/i.test(rawSvg)
 
   const themeColor = theme[color] || { solid: '#000', semi: 'rgba(0,0,0,0.5)' }
@@ -292,11 +334,10 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
     return processed
   }, [rawSvg, svgUrl, w, h, strokeColor, shapeFillPaint, isDualLayerIllustration])
 
-  const pngTrimmed = typeof pngUrl === 'string' ? pngUrl.trim() : ''
-  const hasPng = pngTrimmed !== ''
   const showSvg = !!coloredSvg
   const showSvgImageFallback = !showSvg && svgHasEmbeddedImages && svgUrl
-  const showPngFallback = hasPng && !showSvg && !showSvgImageFallback
+  const showMaskCanvas = !showSvg && hasMaskLayers && mobile
+  const showPngFallback = hasPng && !showSvg && !showSvgImageFallback && !showMaskCanvas
 
   return (
     <HTMLContainer
@@ -309,13 +350,14 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
         opacity: 1,
       }}
     >
-      {!showSvg && hasMaskLayers && mobile ? (
+      {showMaskCanvas ? (
         <MaskCanvas
           fillUrl={fillMaskUrl}
           strokeUrl={strokeMaskUrl}
           width={Math.max(1, w)}
           height={Math.max(1, h)}
           fillColor={shapeFillPaint}
+          mobile={mobile}
         />
       ) : showSvg && coloredSvg ? (
         <div

@@ -63,6 +63,23 @@ const COLORABLE_GROUPS = GROUPS.filter((group) =>
 
 const LAYOUT_GAP = 12
 const GUIDE_LONGEST_SIDE = 520
+const MOBILE_PIECE_LONGEST_SIDE = 220
+const MOBILE_MIN_PIECE_SIDE = 72
+const MOBILE_CREATE_BATCH_SIZE = 2
+const MOBILE_CREATE_BATCH_DELAY = 90
+
+function isMobileLikeDevice() {
+  if (typeof window === 'undefined') return false
+  return (
+    window.innerWidth <= 768 ||
+    window.matchMedia?.('(pointer: coarse)').matches ||
+    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  )
+}
+
+function wait(ms: number) {
+  return new Promise<void>((resolve) => window.setTimeout(resolve, ms))
+}
 
 function publicAssetUrl(href: string) {
   if (!String(href ?? '').trim()) return ''
@@ -291,8 +308,8 @@ function createIllustrationShapeData(
       h: dh,
       svgUrl: publicAssetUrl(piece.svgUrl),
       pngUrl: publicAssetUrl(piece.pngUrl),
-      fillPngUrl: piece.fillPngUrl || '',
-      strokePngUrl: piece.strokePngUrl || '',
+      fillPngUrl: piece.fillPngUrl ? publicAssetUrl(piece.fillPngUrl) : '',
+      strokePngUrl: piece.strokePngUrl ? publicAssetUrl(piece.strokePngUrl) : '',
       name: piece.name,
       color: 'black' as const,
       size: 'm' as const,
@@ -301,17 +318,19 @@ function createIllustrationShapeData(
   }
 }
 
-function getPieceDimensions(piece: IllustrationPiece) {
+function getPieceDimensions(piece: IllustrationPiece, mobileOptimized = false) {
   const sourceW = piece.w && piece.w > 0 ? piece.w : DEFAULT_PIECE_LONGEST_SIDE
   const sourceH = piece.h && piece.h > 0 ? piece.h : DEFAULT_PIECE_LONGEST_SIDE
+  const longestSide = mobileOptimized ? MOBILE_PIECE_LONGEST_SIDE : DEFAULT_PIECE_LONGEST_SIDE
+  const minSide = mobileOptimized ? MOBILE_MIN_PIECE_SIDE : MIN_PIECE_SIDE
 
   const maxSide = Math.max(sourceW, sourceH, 1)
-  const minSide = Math.max(Math.min(sourceW, sourceH), 1)
+  const sourceMinSide = Math.max(Math.min(sourceW, sourceH), 1)
 
-  let scale = DEFAULT_PIECE_LONGEST_SIDE / maxSide
-  const scaledMinSide = minSide * scale
-  if (scaledMinSide < MIN_PIECE_SIDE) {
-    scale = Math.max(scale, MIN_PIECE_SIDE / minSide)
+  let scale = longestSide / maxSide
+  const scaledMinSide = sourceMinSide * scale
+  if (scaledMinSide < minSide) {
+    scale = Math.max(scale, minSide / sourceMinSide)
   }
 
   return {
@@ -320,15 +339,16 @@ function getPieceDimensions(piece: IllustrationPiece) {
   }
 }
 
-function placeIllustrationPieces(
+async function placeIllustrationPieces(
   editor: ReturnType<typeof useEditor>,
   pieces: IllustrationPiece[],
   centreScreen: { x: number; y: number },
 ) {
   if (pieces.length === 0) return
+  const mobileOptimized = isMobileLikeDevice()
 
   const scaled = pieces.map((p) => {
-    return { piece: p, ...getPieceDimensions(p) }
+    return { piece: p, ...getPieceDimensions(p, mobileOptimized) }
   })
 
   const cols = Math.min(5, Math.max(1, Math.ceil(Math.sqrt(scaled.length))))
@@ -361,13 +381,32 @@ function placeIllustrationPieces(
     return rowShapes
   })
 
+  if (!mobileOptimized) {
+    editor.run(() => {
+      editor.setCurrentTool('select')
+      editor.createShapes(shapes)
+      if (shapeIds.length > 0) {
+        editor.select(...shapeIds)
+      }
+    })
+    return
+  }
+
   editor.run(() => {
     editor.setCurrentTool('select')
-    editor.createShapes(shapes)
-    if (shapeIds.length > 0) {
-      editor.select(...shapeIds)
-    }
   })
+
+  for (let i = 0; i < shapes.length; i += MOBILE_CREATE_BATCH_SIZE) {
+    const batch = shapes.slice(i, i + MOBILE_CREATE_BATCH_SIZE)
+    editor.run(() => {
+      editor.createShapes(batch)
+    })
+    await wait(MOBILE_CREATE_BATCH_DELAY)
+  }
+
+  if (shapeIds.length > 0) {
+    editor.select(...shapeIds)
+  }
 }
 
 function placeSingleIllustrationPiece(
@@ -375,7 +414,7 @@ function placeSingleIllustrationPiece(
   piece: IllustrationPiece,
   centreScreen: { x: number; y: number },
 ) {
-  const { dw, dh } = getPieceDimensions(piece)
+  const { dw, dh } = getPieceDimensions(piece, isMobileLikeDevice())
   const centre = editor.screenToPage(centreScreen)
   const shape = createIllustrationShapeData(piece, centre.x - dw / 2, centre.y - dh / 2, dw, dh)
   editor.run(() => {
@@ -447,7 +486,7 @@ function IllustrationPicker() {
       setAdding('all')
       try {
         const centre = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-        placeIllustrationPieces(editor, group.pieces, centre)
+        await placeIllustrationPieces(editor, group.pieces, centre)
       } finally {
         setAdding(null)
       }
