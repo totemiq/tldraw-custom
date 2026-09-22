@@ -1,4 +1,4 @@
-import { memo, useState, useCallback, useEffect, useRef } from 'react'
+import { memo, useState, useCallback, useEffect, useRef, type SyntheticEvent } from 'react'
 import { createPortal } from 'react-dom'
 import {
   Tldraw,
@@ -52,6 +52,7 @@ import {
 import type { TLComponents, TLShapeId } from 'tldraw'
 import 'tldraw/tldraw.css'
 import { IllustrationShapeUtil } from './IllustrationShapeUtil'
+import { getIllustrationLodUrl } from './illustrationLod'
 
 import illustrationData from './illustrationManifest.json'
 import type { IllustrationGroup, IllustrationPiece } from './illustrationManifest.types'
@@ -63,6 +64,9 @@ const COLORABLE_GROUPS = GROUPS.filter((group) =>
 
 const LAYOUT_GAP = 12
 const GUIDE_LONGEST_SIDE = 520
+// Las miniaturas, portadas y la guía del selector miden como mucho ~200 px de
+// CSS; a densidad 3 son ~600 px reales, así que la copia de 1024 se ve igual.
+const PICKER_PREVIEW_PX = 1024
 const MOBILE_PIECE_LONGEST_SIDE = 220
 const MOBILE_MIN_PIECE_SIDE = 72
 const MOBILE_CREATE_BATCH_SIZE = 2
@@ -92,18 +96,29 @@ function publicAssetUrl(href: string) {
   return new URL(path, `${window.location.origin}${prefix}`).href
 }
 
+// Si la copia liviana de una vista previa faltara, se vuelve a la original.
+function fallbackToOriginal(originalUrl: string) {
+  return (event: SyntheticEvent<HTMLImageElement>) => {
+    const image = event.currentTarget
+    if (originalUrl && image.getAttribute('src') !== originalUrl) image.src = originalUrl
+  }
+}
+
 const PiecePreview = memo(function PiecePreview({
   piece,
   maxHeight,
   surfaceColor,
   alignTop,
+  previewPx = PICKER_PREVIEW_PX,
 }: {
   piece: IllustrationPiece
   maxHeight: number
   surfaceColor: string
   alignTop?: boolean
+  previewPx?: number
 }) {
-  const previewUrl = publicAssetUrl(piece.pngUrl || piece.previewUrl || piece.svgUrl || '')
+  const originalUrl = publicAssetUrl(piece.pngUrl || piece.previewUrl || piece.svgUrl || '')
+  const previewUrl = getIllustrationLodUrl(originalUrl, previewPx)
 
   return (
     <div
@@ -121,6 +136,7 @@ const PiecePreview = memo(function PiecePreview({
       {previewUrl ? (
         <img
           src={previewUrl}
+          onError={fallbackToOriginal(originalUrl)}
           alt=""
           draggable={false}
           loading="lazy"
@@ -149,7 +165,8 @@ function ImagePreview({
   surfaceColor: string
   alignTop?: boolean
 }) {
-  const previewUrl = publicAssetUrl(url)
+  const originalUrl = publicAssetUrl(url)
+  const previewUrl = getIllustrationLodUrl(originalUrl, PICKER_PREVIEW_PX)
 
   return (
     <div
@@ -167,6 +184,7 @@ function ImagePreview({
       {previewUrl ? (
         <img
           src={previewUrl}
+          onError={fallbackToOriginal(originalUrl)}
           alt=""
           draggable={false}
           loading="lazy"
@@ -816,7 +834,8 @@ function IllustrationPicker() {
                       }}
                     >
                       <img
-                        src={publicAssetUrl(getGroupGuideUrl(selectedGroup))}
+                        src={getIllustrationLodUrl(publicAssetUrl(getGroupGuideUrl(selectedGroup)), PICKER_PREVIEW_PX)}
+                        onError={fallbackToOriginal(publicAssetUrl(getGroupGuideUrl(selectedGroup)))}
                         alt=""
                         draggable={false}
                         style={{
@@ -917,6 +936,8 @@ function IllustrationPicker() {
                                   piece={piece}
                                   maxHeight={104}
                                   surfaceColor={tl.surface}
+                                  // Con una sola pieza la miniatura ocupa todo el ancho: original.
+                                  previewPx={selectedGroup.pieces.length === 1 ? Infinity : PICKER_PREVIEW_PX}
                                 />
                               )}
                             </div>

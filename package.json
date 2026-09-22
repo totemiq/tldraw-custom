@@ -9,7 +9,8 @@
     "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "illustrations:sync": "node scripts/sync-illustrations.mjs"
+    "illustrations:sync": "node scripts/sync-illustrations.mjs",
+    "illustrations:lod": "node scripts/generate-lod-illustrations.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",

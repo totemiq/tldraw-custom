@@ -8,16 +8,25 @@ import {
   DefaultSizeStyle,
   DefaultFillStyle,
   useDefaultColorTheme,
+  useEditor,
+  useValue,
   resizeBox,
 } from 'tldraw'
 import type {
   TLShape,
+  TLShapeId,
   TLResizeInfo,
   TLDefaultColorStyle,
   TLDefaultSizeStyle,
   TLDefaultFillStyle,
 } from 'tldraw'
 import { useMemo, useState, useEffect, useRef } from 'react'
+import {
+  getDevicePixelRatio,
+  getIllustrationLodLevel,
+  getIllustrationLodUrl,
+  isIllustrationLodUrl,
+} from './illustrationLod'
 
 const ILLUSTRATION_TYPE = 'illustration' as const
 
@@ -43,6 +52,21 @@ type IllustrationShape = TLShape<typeof ILLUSTRATION_TYPE>
 const svgCache = new Map<string, string>()
 const svgRequestCache = new Map<string, Promise<string>>()
 const processedSvgCache = new Map<string, string>()
+
+// Cachés acotadas: antes crecían sin límite y retenían SVG/imágenes enormes.
+const SVG_CACHE_MAX = 48
+const PROCESSED_SVG_CACHE_MAX = 48
+const IMAGE_CACHE_MAX = 24
+
+function rememberBounded<V>(cache: Map<string, V>, key: string, value: V, max: number) {
+  cache.delete(key)
+  cache.set(key, value)
+  while (cache.size > max) {
+    const oldest = cache.keys().next().value
+    if (oldest === undefined) break
+    cache.delete(oldest)
+  }
+}
 
 function isMobileDevice() {
   if (typeof window === 'undefined' || typeof navigator === 'undefined') return false
@@ -85,7 +109,10 @@ function runQueuedMobileImageLoad<T>(load: () => Promise<T>) {
 
 function loadImage(url: string, queued = false) {
   const cached = imageRequestCache.get(url)
-  if (cached) return cached
+  if (cached) {
+    rememberBounded(imageRequestCache, url, cached, IMAGE_CACHE_MAX)
+    return cached
+  }
 
   const requestImage = () => new Promise<HTMLImageElement>((resolve, reject) => {
     const image = new Image()
@@ -95,9 +122,17 @@ function loadImage(url: string, queued = false) {
     image.src = url
   })
   const request = queued ? runQueuedMobileImageLoad(requestImage) : requestImage()
+  request.catch(() => imageRequestCache.delete(url))
 
-  imageRequestCache.set(url, request)
+  rememberBounded(imageRequestCache, url, request, IMAGE_CACHE_MAX)
   return request
+}
+
+/** Carga la copia liviana; si faltara, cae a la original como antes. */
+function loadLodImage(url: string, neededPx: number, queued: boolean) {
+  const lodUrl = getIllustrationLodUrl(url, neededPx)
+  const request = loadImage(lodUrl, queued)
+  return lodUrl === url ? request : request.catch(() => loadImage(url, queued))
 }
 
 function getCappedRenderSize(
@@ -118,6 +153,11 @@ function getCappedRenderSize(
   }
 }
 
+// Un solo lienzo auxiliar reutilizado: antes se creaban dos por pieza en cada
+// dibujado y se acumulaban hasta que pasara el recolector. Asignar width/height
+// lo limpia y reinicia su estado, igual que uno nuevo.
+let scratchCanvas: HTMLCanvasElement | null = null
+
 function drawMaskedLayer(
   ctx: CanvasRenderingContext2D,
   image: HTMLImageElement,
@@ -125,7 +165,7 @@ function drawMaskedLayer(
   width: number,
   height: number,
 ) {
-  const scratch = document.createElement('canvas')
+  const scratch = (scratchCanvas ??= document.createElement('canvas'))
   scratch.width = Math.max(1, Math.round(width))
   scratch.height = Math.max(1, Math.round(height))
 
@@ -165,10 +205,22 @@ function MaskCanvas({
     mobile ? MOBILE_SHAPE_MAX_RENDER_PIXELS : SHAPE_MAX_RENDER_PIXELS,
   )
 
+  // Las capas se dibujan a renderSize (1x) y luego se escalan, así que basta
+  // una copia cuyo lado mayor cubra renderSize; no hace falta la de 7000 px.
+  const lodPx = Math.max(renderSize.width, renderSize.height)
+
   useEffect(() => {
     let cancelled = false
 
     async function draw() {
+      // Se cargan antes de tocar el canvas para no dejarlo en blanco mientras llegan.
+      const [fillImage, strokeImage] = await Promise.all([
+        fillUrl ? loadLodImage(fillUrl, lodPx, mobile).catch(() => null) : Promise.resolve(null),
+        strokeUrl ? loadLodImage(strokeUrl, lodPx, mobile).catch(() => null) : Promise.resolve(null),
+      ])
+
+      if (cancelled) return
+
       const canvas = canvasRef.current
       if (!canvas) return
 
@@ -185,13 +237,6 @@ function MaskCanvas({
       ctx.imageSmoothingQuality = 'high'
       ctx.scale(dpr, dpr)
 
-      const [fillImage, strokeImage] = await Promise.all([
-        fillUrl ? loadImage(fillUrl, mobile).catch(() => null) : Promise.resolve(null),
-        strokeUrl ? loadImage(strokeUrl, mobile).catch(() => null) : Promise.resolve(null),
-      ])
-
-      if (cancelled) return
-
       if (fillImage) {
         drawMaskedLayer(ctx, fillImage, fillColor, renderSize.width, renderSize.height)
       }
@@ -206,7 +251,7 @@ function MaskCanvas({
     return () => {
       cancelled = true
     }
-  }, [fillUrl, strokeUrl, renderSize.width, renderSize.height, fillColor, mobile])
+  }, [fillUrl, strokeUrl, lodPx, renderSize.width, renderSize.height, fillColor, mobile])
 
   return (
     <canvas
@@ -222,41 +267,139 @@ function MaskCanvas({
   )
 }
 
-function useSvgContent(url: string): string | null {
-  const [content, setContent] = useState<string | null>(() =>
-    url ? (svgCache.get(url) ?? null) : null,
-  )
+function requestSvg(url: string) {
+  const cached = svgCache.get(url)
+  if (cached !== undefined) {
+    rememberBounded(svgCache, url, cached, SVG_CACHE_MAX)
+    return Promise.resolve(cached)
+  }
+
+  const pending = svgRequestCache.get(url)
+  if (pending) return pending
+
+  const request = fetch(url)
+    .then((r) => {
+      if (!r.ok) throw new Error(`Failed to load ${url}`)
+      return r.text()
+    })
+    .then((text) => {
+      // Una copia inexistente la responde el fallback SPA con index.html.
+      if (isIllustrationLodUrl(url) && !/<svg[\s>]/i.test(text)) {
+        throw new Error(`Not an SVG: ${url}`)
+      }
+      rememberBounded(svgCache, url, text, SVG_CACHE_MAX)
+      return text
+    })
+    .finally(() => {
+      svgRequestCache.delete(url)
+    })
+
+  svgRequestCache.set(url, request)
+  return request
+}
+
+type SvgContent = { url: string; text: string }
+
+/**
+ * Devuelve el SVG junto con la URL de la que salió. Mientras llega uno nuevo se
+ * mantiene el anterior (así no parpadea al cambiar de copia). Si la copia
+ * liviana falla, usa la original.
+ */
+function useSvgContent(url: string, fallbackUrl: string): SvgContent | null {
+  const [content, setContent] = useState<SvgContent | null>(() => {
+    const text = url ? svgCache.get(url) : undefined
+    return text !== undefined ? { url, text } : null
+  })
 
   useEffect(() => {
     if (!url) {
       setContent(null)
       return
     }
-    if (svgCache.has(url)) {
-      setContent(svgCache.get(url)!)
-      return
+
+    let cancelled = false
+    const show = (loadedUrl: string) => (text: string) => {
+      if (!cancelled) setContent({ url: loadedUrl, text })
     }
-    const request =
-      svgRequestCache.get(url) ??
-      fetch(url).then((r) => {
-        if (!r.ok) throw new Error(`Failed to load ${url}`)
-        return r.text()
-      })
 
-    svgRequestCache.set(url, request)
-
-    request
-      .then((text) => {
-        svgCache.set(url, text)
-        setContent(text)
+    requestSvg(url)
+      .then(show(url))
+      .catch(() => {
+        if (!fallbackUrl || fallbackUrl === url) throw new Error(`Failed to load ${url}`)
+        return requestSvg(fallbackUrl).then(show(fallbackUrl))
       })
       .catch(() => {
-        svgRequestCache.delete(url)
-        setContent(null)
+        if (!cancelled) setContent(null)
       })
-  }, [url])
+
+    return () => {
+      cancelled = true
+    }
+  }, [url, fallbackUrl])
 
   return content
+}
+
+// Más allá de este margen (en pantallas) una pieza no está por verse: se puede
+// bajar a una copia liviana sin que se note y así liberar memoria.
+const NEAR_VIEWPORT_MARGIN = 0.5
+const FAR_FROM_VIEWPORT_PX = 1024
+// Bajar de nivel espera a que el tamaño/zoom se estabilice, para no alternar
+// copias mientras se arrastra un tirador o se hace zoom.
+const LOD_DOWNGRADE_DELAY_MS = 1500
+
+/**
+ * URL de la copia con el detalle que pide la pieza en pantalla (tamaño × zoom ×
+ * densidad). Sube de nivel al instante; baja solo tras estabilizarse o cuando
+ * la pieza queda lejos del viewport (así libera memoria sin que se note).
+ */
+function useViewportLodUrl(shapeId: TLShapeId, url: string, w: number, h: number) {
+  const editor = useEditor()
+
+  const neededLevel = useValue(
+    'illustration lod level',
+    () => {
+      const screenPx = Math.max(w, h) * editor.getEfficientZoomLevel() * getDevicePixelRatio()
+      return getIllustrationLodLevel(url, screenPx)
+    },
+    [editor, url, w, h],
+  )
+
+  const nearViewport = useValue(
+    'illustration near viewport',
+    () => {
+      const bounds = editor.getShapePageBounds(shapeId)
+      if (!bounds) return true
+      const viewport = editor.getViewportPageBounds()
+      const marginX = viewport.w * NEAR_VIEWPORT_MARGIN
+      const marginY = viewport.h * NEAR_VIEWPORT_MARGIN
+      return (
+        bounds.maxX >= viewport.minX - marginX &&
+        bounds.minX <= viewport.maxX + marginX &&
+        bounds.maxY >= viewport.minY - marginY &&
+        bounds.minY <= viewport.maxY + marginY
+      )
+    },
+    [editor, shapeId],
+  )
+
+  const [shownLevel, setShownLevel] = useState(neededLevel)
+  const level = nearViewport ? Math.max(shownLevel, neededLevel) : shownLevel
+  const targetLevel = nearViewport
+    ? neededLevel
+    : Math.min(neededLevel, getIllustrationLodLevel(url, FAR_FROM_VIEWPORT_PX))
+
+  useEffect(() => {
+    if (level > shownLevel) {
+      setShownLevel(level)
+      return
+    }
+    if (targetLevel >= shownLevel) return
+    const timeout = setTimeout(() => setShownLevel(targetLevel), LOD_DOWNGRADE_DELAY_MS)
+    return () => clearTimeout(timeout)
+  }, [level, shownLevel, targetLevel])
+
+  return getIllustrationLodUrl(url, level)
 }
 
 function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
@@ -272,7 +415,12 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
   const preferMobileRaster = mobile && (hasMaskLayers || hasPng)
   const shouldLoadSvg = !preferMobileRaster || (!hasPng && !hasMaskLayers)
 
-  const rawSvg = useSvgContent(shouldLoadSvg ? svgUrl : '')
+  const lodSvgUrl = useViewportLodUrl(shape.id, svgUrl, w, h)
+  const lodPngUrl = useViewportLodUrl(shape.id, pngTrimmed, w, h)
+
+  const svgContent = useSvgContent(shouldLoadSvg ? lodSvgUrl : '', shouldLoadSvg ? svgUrl : '')
+  const rawSvg = svgContent?.text ?? null
+  const rawSvgUrl = svgContent?.url ?? ''
   const svgHasEmbeddedImages = !!rawSvg && /<image\b/i.test(rawSvg)
 
   const themeColor = theme[color] || { solid: '#000', semi: 'rgba(0,0,0,0.5)' }
@@ -299,20 +447,21 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
     /\bclass="[^"]*\bshape-fill\b/.test(rawSvg) &&
     /\bclass="[^"]*\bshape-stroke\b/.test(rawSvg)
 
+  // El tamaño lo da style="width:100%;height:100%" (y todos traen viewBox), así
+  // que el SVG procesado no depende de w/h: redimensionar ya no genera una copia
+  // nueva por cada cuadro ni vuelve a inyectar el SVG.
   const coloredSvg = useMemo(() => {
     if (!rawSvg) return null
 
-    const cacheKey = [svgUrl, w, h, strokeColor, shapeFillPaint, isDualLayerIllustration].join('|')
+    const cacheKey = [rawSvgUrl, strokeColor, shapeFillPaint, isDualLayerIllustration].join('|')
     const cached = processedSvgCache.get(cacheKey)
-    if (cached) return cached
+    if (cached) {
+      rememberBounded(processedSvgCache, cacheKey, cached, PROCESSED_SVG_CACHE_MAX)
+      return cached
+    }
 
     let processed = rawSvg
-      .replace(/<svg([^>]*)>/, (_, attrs) => {
-        let updated = attrs
-        updated = updated.replace(/width="[^"]*"/, `width="${w}"`)
-        updated = updated.replace(/height="[^"]*"/, `height="${h}"`)
-        return `<svg${updated} style="width:100%;height:100%;">`
-      })
+      .replace(/<svg([^>]*)>/, (_, attrs) => `<svg${attrs} style="width:100%;height:100%;">`)
       .replace(
         /(class="[^"]*\bshape-fill\b[^"]*")(\s[^>]*?)(fill=")([^"]*)(")/gi,
         `$1$2$3${shapeFillPaint}$5`,
@@ -330,9 +479,9 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
       )
     }
 
-    processedSvgCache.set(cacheKey, processed)
+    rememberBounded(processedSvgCache, cacheKey, processed, PROCESSED_SVG_CACHE_MAX)
     return processed
-  }, [rawSvg, svgUrl, w, h, strokeColor, shapeFillPaint, isDualLayerIllustration])
+  }, [rawSvg, rawSvgUrl, strokeColor, shapeFillPaint, isDualLayerIllustration])
 
   const showSvg = !!coloredSvg
   const showSvgImageFallback = !showSvg && svgHasEmbeddedImages && svgUrl
@@ -389,7 +538,11 @@ function IllustrationComponent({ shape }: { shape: IllustrationShape }) {
       ) : null}
       {showPngFallback && (
         <img
-          src={pngTrimmed}
+          src={lodPngUrl}
+          onError={(e) => {
+            // Si la copia liviana faltara, se vuelve a la original (una sola vez).
+            if (e.currentTarget.getAttribute('src') !== pngTrimmed) e.currentTarget.src = pngTrimmed
+          }}
           alt=""
           draggable={false}
           loading="lazy"
